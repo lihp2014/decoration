@@ -1,38 +1,23 @@
 <template>
   <div class="hello">
     <span>msgPage</span>
-    <tabbar v-model="index">
-      <tabbar-item link="home">
-        <img slot="icon" src="../assets/icon/home.svg">
-        <span slot="label">首页</span>
-      </tabbar-item>
-      <tabbar-item link="msg">
-        <img slot="icon" src="../assets/icon/msg.svg">
-        <span slot="label">留言板</span>
-      </tabbar-item>
-      <tabbar-item link="money">
-        <img slot="icon" src="../assets/icon/money.svg">
-        <span slot="label">金融板块</span>
-      </tabbar-item>
-      <tabbar-item link="my">
-        <img slot="icon" src="../assets/icon/person.svg">
-        <span slot="label">个人中心</span>
-      </tabbar-item>
-    </tabbar>
+    <bottom-Bar v-model="index"></bottom-Bar>
   </div>
 </template>
 
 <script>
 import { Tabbar, TabbarItem } from 'vux'
+import bottomBar from '../components/BottomBar'
 export default {
   name: 'MsgPage',
   components: {
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    bottomBar,
   },
   data () {
     return {
-        index: 1
+      index: 1
     }
   }
 }
