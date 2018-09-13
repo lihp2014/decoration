@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <span>homePage</span>
-    <bottom-Bar v-model='index'></bottom-Bar>
+    <bottom-Bar  v-bind={index}></bottom-Bar>
   </div>
 </template>
 
@@ -11,8 +11,6 @@ import bottomBar from '../components/BottomBar'
 export default {
   name: 'HomePage',
   components: {
-    Tabbar,
-    TabbarItem,
     bottomBar,
   },
   data () {
