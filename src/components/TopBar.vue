@@ -1,7 +1,8 @@
 <template>
     <div>
         <flexbox class="topbar">
-            <flexbox-item span='1'><span> &lt;</span></flexbox-item>
+            <!-- <flexbox-item @click="Path" span='1'><span> &lt;</span></flexbox-item> -->
+            <router-link to="/"><flexbox-item span='1'><span> &lt;</span></flexbox-item></router-link>
             <flexbox-item><p>{{text}}</p></flexbox-item>
         </flexbox>
     </div>  
@@ -13,7 +14,12 @@ export default {
         Flexbox,
         FlexboxItem,
     },
-    props: ['text']
+    props: ['text'],
+    methods: {
+        Path: () => {
+            this.$router.push({path: '/'})
+        }
+    }
 }
 </script>
 <style scoped>
