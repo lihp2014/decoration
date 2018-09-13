@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
     <tabbar v-model="index">
       <tabbar-item link="/">
         <img slot="icon" src="../assets/icon/home.svg">
