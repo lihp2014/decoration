@@ -5,6 +5,7 @@ import HomePage from '@/pages/HomePage'
 import MsgPage from '@/pages/MsgPage'
 import MoneyPage from '@/pages/MoneyPage'
 import MyPage from '@/pages/MyPage'
+import LoanPage from '@/pages/LoanPage'
 
 Vue.use(Router)
 
@@ -34,6 +35,11 @@ export default new Router({
       path: '/my',
       name: 'MyPage',
       component: MyPage
-    }
+    },
+    {
+      path: '/loan',
+      name: '贷款申请',
+      component: LoanPage
+    },    
   ]
 })
