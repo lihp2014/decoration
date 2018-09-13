@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <span>myPage</span>
-    <bottom-Bar v-model="index"></bottom-Bar>
+    <bottom-Bar v-bind={index}></bottom-Bar>
   </div>
 </template>
 
