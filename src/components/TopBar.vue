@@ -1,8 +1,7 @@
 <template>
-    <div>
+    <div class='box'>
         <flexbox class="topbar">
-            <!-- <flexbox-item @click="Path" span='1'><span> &lt;</span></flexbox-item> -->
-            <router-link to="/"><flexbox-item span='1'><span> &lt;</span></flexbox-item></router-link>
+            <flexbox-item  @click.native="goBack" span='1'><span> &lt;</span></flexbox-item>
             <flexbox-item><p>{{text}}</p></flexbox-item>
         </flexbox>
     </div>  
@@ -16,19 +15,21 @@ export default {
     },
     props: ['text'],
     methods: {
-        Path: () => {
-            this.$router.push({path: '/'})
-        }
+        goBack: function (event) {
+            this.$router.go(-1)
+        },
     }
 }
 </script>
 <style scoped>
     .topbar {
-        position: fixed;
+        /* position: fixed; */
         top: 0;
         height: 100px;
     }
-
+    .box {
+        height: 40px,
+    }
 </style>
 
 

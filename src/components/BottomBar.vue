@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <tabbar v-model="index">
-      <tabbar-item link="/">
+      <tabbar-item link="/home">
         <img slot="icon" src="../assets/icon/home.svg">
         <span slot="label">首页</span>
       </tabbar-item>

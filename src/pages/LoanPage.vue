@@ -7,10 +7,10 @@
         <x-input class='inputbox' title='微信号码' v-model="weixin"></x-input>
         <div class='havehouse'>名下是否有房</div>
         <div>
-            <x-button mini>否</x-button>
+            <x-button mini type='primary'>否</x-button>
             <x-button mini>是</x-button>
         </div>
-        <x-button type='primary' class='submit'>提交</x-button>
+        <x-button link='/result' type='primary' class='submit' >提交</x-button>
     </div>  
 </template>
 <script>

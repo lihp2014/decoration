@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <span>moneyPage</span>
+    <router-link to='/loan'><span>moneyPage</span></router-link>
     <bottom-Bar  v-bind={index}></bottom-Bar>
   </div>
 </template>

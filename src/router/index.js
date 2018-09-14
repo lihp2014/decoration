@@ -1,23 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
 import HomePage from '@/pages/HomePage'
 import MsgPage from '@/pages/MsgPage'
 import MoneyPage from '@/pages/MoneyPage'
 import MyPage from '@/pages/MyPage'
 import LoanPage from '@/pages/LoanPage'
+import ResultPage from '@/pages/ResultPage'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'HelloWorld',
-    //   component: HelloWorld
-    // },
     {
       path: '/',
+      redirect: '/home',
+    },
+    {
+      path: '/home',
       name: 'HomePage',
       component: HomePage
     },
@@ -41,5 +40,10 @@ export default new Router({
       name: '贷款申请',
       component: LoanPage
     },    
+    {
+      path: '/result',
+      name: '贷款申请',
+      component: ResultPage
+    }, 
   ]
 })
