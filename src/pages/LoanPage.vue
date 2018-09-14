@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top-bar text='贷款申请' class='top'></top-bar>
+        <top-bar text='贷款申请' left='true'></top-bar>
         <x-input class='inputbox' title='姓名' v-model="name"></x-input>
         <x-input class='inputbox' title='联系方式' v-model="phone"></x-input>
         <x-input class='inputbox' title='贷款金额' v-model="money"></x-input>
@@ -35,18 +35,14 @@ export default {
 }
 </script>
 <style scoped>
-    .top {
-        height: 40px;
-    }
     .havehouse {
         text-align: center;
         color: #373737;
     }
     .submit {
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-top: 30px;
+        margin-top: 60px;
         padding: 20px 0; 
+        border-radius: 20px;
     }
     .inputbox {
         padding: 20px 0;

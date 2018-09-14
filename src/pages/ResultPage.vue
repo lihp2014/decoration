@@ -1,6 +1,6 @@
 <template>
     <div >
-        <top-bar text='贷款申请'></top-bar>
+        <top-bar text='贷款申请' left='true'></top-bar>
         <div >
             <icon type="success" is-msg class='icon'></icon>
             <p>提交成功</p>

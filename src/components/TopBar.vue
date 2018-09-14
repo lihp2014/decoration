@@ -2,7 +2,8 @@
     <div class='box'>
         <flexbox class="topbar">
             <flexbox-item  @click.native="goBack" span='1'><span> &lt;</span></flexbox-item>
-            <flexbox-item><p>{{text}}</p></flexbox-item>
+            <flexbox-item v-if="left"><p class='topfont' >{{text}}</p></flexbox-item>
+            <flexbox-item v-if="center"><p class='topfont' style='textAlign:center'>{{text}}</p></flexbox-item>
         </flexbox>
     </div>  
 </template>
@@ -13,7 +14,7 @@ export default {
         Flexbox,
         FlexboxItem,
     },
-    props: ['text'],
+    props: ['text','left','center'],
     methods: {
         goBack: function (event) {
             this.$router.go(-1)
@@ -29,6 +30,10 @@ export default {
     }
     .box {
         height: 40px,
+    }
+    .topfont {
+        font-size: 36px;
+        color: #626262;
     }
 </style>
 

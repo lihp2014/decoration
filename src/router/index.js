@@ -6,7 +6,8 @@ import MoneyPage from '@/pages/MoneyPage'
 import MyPage from '@/pages/MyPage'
 import LoanPage from '@/pages/LoanPage'
 import ResultPage from '@/pages/ResultPage'
-
+import PartnerPage from '@/pages/PartnerPage'
+import IntegralPage from '@/pages/IntegralPage'
 Vue.use(Router)
 
 export default new Router({
@@ -45,5 +46,16 @@ export default new Router({
       name: '贷款申请',
       component: ResultPage
     }, 
+    {
+      path: '/partner',
+      name: '合伙人市场',
+      component: PartnerPage
+    }, 
+    {
+      path: '/integral',
+      name: '合伙人市场',
+      component: IntegralPage
+    }, 
+    
   ]
 })
