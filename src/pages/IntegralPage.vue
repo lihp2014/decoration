@@ -8,7 +8,7 @@
         <div class='notices'>每次兑换金额不得低于100元, 余额低于100时不可提现</div>
         <x-input class='inputbox' placeholder='输入提现金额' title='积分提现' v-model="integral"></x-input>
         <box gap="50px 10px">
-            <x-button type="primary" class='getmoney'>提现</x-button>
+            <x-button type="primary" class='getmoney' link='/moneyDetail'>提现</x-button>
         </box>
     </div>
 </template>

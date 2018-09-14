@@ -10,12 +10,14 @@
             <x-button mini type='primary'>否</x-button>
             <x-button mini>是</x-button>
         </div>
-        <x-button link='/result' type='primary' class='submit' >提交</x-button>
+        <box gap="50px 10px">
+            <x-button link='/result' type='primary' class='submit' >提交</x-button>
+        </box>     
     </div>  
 </template>
 <script>
 import topBar from '../components/Topbar'
-import { XInput, XButton } from 'vux'
+import { XInput, XButton, Box } from 'vux'
 
 export default {
     name: 'LoanPage',
@@ -23,6 +25,7 @@ export default {
         topBar,
         XInput,
         XButton,
+        Box,
     },
     data() {
         return {

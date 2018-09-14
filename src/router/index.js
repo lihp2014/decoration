@@ -8,6 +8,8 @@ import LoanPage from '@/pages/LoanPage'
 import ResultPage from '@/pages/ResultPage'
 import PartnerPage from '@/pages/PartnerPage'
 import IntegralPage from '@/pages/IntegralPage'
+import MoneyDetail from '@/pages/MoneyDetail'
+import VIPPage from '@/pages/VIPPage'
 Vue.use(Router)
 
 export default new Router({
@@ -56,6 +58,20 @@ export default new Router({
       name: '合伙人市场',
       component: IntegralPage
     }, 
-    
+    {
+      path: '/moneyDetail',
+      name: '提现明细',
+      component: MoneyDetail
+    },    
+    {
+      path: '/moneyDetail',
+      name: '提现明细',
+      component: MoneyDetail
+    }, 
+    {
+      path: '/vip',
+      name: 'vip推广',
+      component: VIPPage
+    }, 
   ]
 })

@@ -19,15 +19,24 @@
     <group>
       <cell-box class='list' is-link link='partner'>合伙人绑定</cell-box>
       <cell-box class='list' is-link link='integral'>积分兑换</cell-box>
-      <cell-box class='list' is-link>推广码</cell-box>
-      <cell-box class='list last' is-link>vip推广</cell-box>
+      <cell-box class='list' is-link @click.native="spread">推广码</cell-box>
+      <cell-box class='last list' is-link link='vip'>vip推广</cell-box>
     </group>  
     <bottom-Bar v-bind={index}></bottom-Bar>
+    <x-dialog v-model="showcode"  hide-on-blur :dialog-style="{'max-width': '100%', width: '80%', height: '50%', 'background-color': 'transparent', margin: 'auto'}" >
+      <div class="dialog">
+        <p class='codetitle'>推广二维码</p>
+        <qrcode value="https://vux.li?x-page=demo_qrcode"></qrcode>
+      </div>
+      <box gap="20px 50px">
+        <x-button class='btn' @click.native="spread">下载二维码</x-button>
+      </box>
+    </x-dialog>
   </div>
 </template>
 
 <script>
-import { Flexbox, FlexboxItem, CellBox, Group } from 'vux'
+import { Flexbox, FlexboxItem, CellBox, Group, XDialog, XButton, Box, Qrcode } from 'vux'
 import bottomBar from '../components/BottomBar'
 
 export default {
@@ -37,19 +46,30 @@ export default {
     FlexboxItem,
     bottomBar,
     CellBox,
-    Group
+    Group,
+    XDialog,
+    XButton,
+    Box,
+    Qrcode,
   },
   data () {
     return {
-      index: 3
+      index: 3,
+      showcode: false,
+    }
+  },
+  methods: {
+    spread: function() {
+      this.showcode = !this.showcode
     }
   }
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .jifen {
   padding-bottom: 30px;
+  padding-top: 15px;
   .grey {
   color: #787878;
   font-size: 22px;
@@ -64,6 +84,20 @@ export default {
     color: #363636;
   }
 }
+.dialog {
+  background: #fff;
+  padding-bottom: 30px;
+  .codetitle {
+    color: #464646;
+    font-size: 36px;
+    padding: 15px 0;
+  }
+}
+.btn {
+  padding: 25px 0;
+  border-radius: 20px;
+  background: #fff;
+}
 .information {
   height: 370px;
   border: 1px solid #000;
@@ -72,13 +106,18 @@ export default {
   height:20px;
   background:rgb(246,246,246);
 }
-.list {
-  padding: 20px 15px;
-}
 .last {
   border-bottom: 1px solid #eee;
+  font-size: 30px;
+}
+.list {
+  font-size: 30px;
+  padding: 30px 10px !important;
 }
 .weui-cells {
   margin-top: 0 !important;
+}
+.weui-cells:after {
+  border-bottom: none !important;
 }
 </style>
