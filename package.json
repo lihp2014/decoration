@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "cssnano": "^4.1.0",
+    "http2": "^3.3.7",
     "postcss-px-to-viewport": "0.0.3",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",

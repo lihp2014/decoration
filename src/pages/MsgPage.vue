@@ -110,16 +110,16 @@ a {
   color: #42b983;
 }
 .content {
-    width: '100%';
-    height: '100%';
+    width: 80%;
+    height: 100%;
     border: 1px solid #ccc;
     border-radius: 30px;
     box-shadow: 2px 2px 3px #aaaaaa;
     padding: 30px 40px;
-    margin-top: 30px;
+    margin: 30px auto;
 }
 .image-box img {
-    width: 640px;
+    width: 600px;
     height: 272px;
 }
 .wrap {
