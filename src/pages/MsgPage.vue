@@ -6,13 +6,13 @@
             <img src="../assets/msgPic.jpg">
         </div>
         <flexbox class="wrap">
-            <popup-picker :title="选择地区" :data="list1" :columns="3" v-model="value1"></popup-picker>
+            <popup-picker :data="list1" :columns="3" v-model="value1"></popup-picker>
         </flexbox>
         <flexbox class="wrap">
             <x-input placeholder="请输入您的房屋面积" v-model="area"></x-input>
         </flexbox>
         <flexbox class="wrap">
-            <popup-picker :title="选择地区" :data="list2" v-model="value2"></popup-picker>
+            <popup-picker :data="list2" v-model="value2"></popup-picker>
         </flexbox>
         <flexbox class="wrap">
             <x-input placeholder="输入号码，方便和您联系" v-model="phone"></x-input>
@@ -45,40 +45,40 @@ export default {
         index: 1,
         list1: [{
             name: '湖南',
-            value: 'hunan',
+            value: '湖南',
             parent: 0
         }, {
             name: '湖北',
-            value: 'hubei',
+            value: '湖北',
             parent: 0
         }, {
             name: '长沙',
-            value: 'changsha',
-            parent: 'hunan'
+            value: '长沙',
+            parent: '湖南'
         }, {
             name: '常德',
-            value: 'changde',
-            parent: 'hunan'
+            value: '常德',
+            parent: '湖南'
         }, {
             name: '武汉',
-            value: 'wuhan',
-            parent: 'hubei'
+            value: '武汉',
+            parent: '湖北'
         }, {
             name: '黄冈',
-            value: 'huanggang',
-            parent: 'hubei'
+            value: '黄冈',
+            parent: '湖北'
         }, {
             name: '芙蓉区',
-            value: 'furongqu',
-            parent: 'changsha'
+            value: '芙蓉区',
+            parent: '长沙'
         }, {
             name: '天心区',
-            value: 'tianxinqu',
-            parent: 'changsha'
+            value: '天心区',
+            parent: '长沙'
         }, {
             name: '洪山区',
-            value: 'hongshan',
-            parent: 'wuhan'
+            value: '洪山区',
+            parent: '武汉'
         }],
         value1: ['湖北', '武汉', '洪山'],
         list2: [
@@ -87,7 +87,9 @@ export default {
         ['1厨', '0厨'],
         ['1卫', '2卫', '3卫'],
         ['1阳台', '2阳台', '3阳台']],
-        value2: ['1室', '1厅', '1厨', '1卫', '1阳台']
+        value2: ['1室', '1厅', '1厨', '1卫', '1阳台'],
+        area: '',
+        phone: ''
     }
   }
 }
