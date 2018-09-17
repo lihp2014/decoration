@@ -82,13 +82,10 @@ import newsList from '../components/NewsList'
 import { TMap } from '../utils/TMap'
 
 const baseList = [{
-  url: 'javascript:',
   img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
 }, {
-  url: 'javascript:',
   img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg',
 }, {
-  url: 'javascript:',
   img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg',
 }]
 
@@ -133,7 +130,7 @@ export default {
     background-color: #F0F0F0;
   }
   .top-box {
-    width: 95%;
+    width: 100%;
     background-color: #fff;
     padding: 40px 0 20px 20px;
     margin-bottom: 20px;
@@ -161,7 +158,7 @@ export default {
     margin-right: 0;
   }
   .example-box, .news-box, .map-box {
-    width: 93%;
+    width: 95%;
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
