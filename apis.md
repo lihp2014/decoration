@@ -41,6 +41,7 @@
 - 具体案例
 传入： id
 返回：
+```
 {
     view: Number,  //浏览数量
     imgList: [
@@ -48,9 +49,11 @@
     ],
     imgCount: Number  // 图片数量
 }
+```
 
 #### 新闻动态
 - news
+```
 [
     {
         id: Number,  //新闻id
@@ -67,18 +70,22 @@
         article: String   //文章内容
     }
 ]
+```
 - 具体新闻
 传入：id
 返回：
+```
 {
     title: String,  // 新闻标题
     article: String,   // 新闻内容
 }
+```
 
 ### 留言板
 - 地址列表
     省、市、县/区三级
     addressList: 
+    ```
     [
         {
             name: '湖南',
@@ -118,8 +125,10 @@
             parent: '武汉'
         }
     ]
+    ```
 - 房型列表
     roomList:
+    ```
     [
         ['1室', '2室', '3室'],
         ['1厅', '2厅', '3厅'],
@@ -127,14 +136,85 @@
         ['1卫', '2卫', '3卫'],
         ['1阳台', '2阳台', '3阳台']
     ]
+    ```
 - POST提交房型数据
+```
     {
         address: ['湖北', '武汉', '洪山'],
         room: ['1室', '1厅', '1厨', '1卫', '1阳台'],
         area: Number,
         phone: Number
     }
+```
 ### 金融板块
-- 贷款申请
+- 贷款申请，POST提交表单
+```
+    {
+        name: String,
+        phone: Number,
+        money: Number,
+        weixin: String,
+        isHaveHouse: Boolean
+    }
+```
+
 
 ### 个人中心
+- 个人中心
+```
+[
+    personInfo: {
+        nickname: String, //昵称
+        id: String,
+        avatar: String, // 头像
+        totalPoints: Number,  // 总积分
+        presentPoints: Number, // 现有积分
+        partner: Number  // 合伙人等级
+    }
+]
+```
+
+- 合伙人市场
+```
+{
+    partners:  [
+        {
+            avatar: String, //头像
+            nickname: String, // 昵称
+            inviteCount: Number, // 邀请人数目
+            inviter: String  // 邀请人昵称
+        },
+        {
+            avatar: String, //头像
+            nickname: String, // 昵称
+            inviteCount: Number, // 邀请人数目
+            inviter: String  // 邀请人昵称
+        }
+    ],
+    marketCount: Number
+}
+    
+```
+
+- 积分兑换
+    - 可提现积分
+    ```
+        {
+            points: Number
+        }
+    ```
+    - 提现
+    ```
+        {
+            money: Number
+        }
+    ```
+    - 明细
+
+- 二维码
+    {
+        qrcode: String  // 二维码地址
+    }
+
+- vip推广
+与合伙人数据结构类似
