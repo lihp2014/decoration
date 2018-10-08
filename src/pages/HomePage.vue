@@ -80,6 +80,7 @@ import bottomBar from '../components/BottomBar'
 import exampleList from '../components/ExampleList'
 import newsList from '../components/NewsList'
 import { TMap } from '../utils/TMap'
+import { homeData } from '../service/home'
 
 const baseList = [{
   img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
@@ -107,18 +108,20 @@ export default {
     }
   },
   methods: {
-    toAbout: function() {
-      location.href="/about";
+    async getHomeData () {
+      const res = await homeData();
     }
   },
   mounted() {
-      TMap('RYEBZ-NH7LD-YQ64O-P7Q4F-6VRCQ-IIFTY').then(qq => {
-        var map = new qq.maps.Map(document.getElementById("container"), {
-            // 地图的中心地理坐标。
-            center: new qq.maps.LatLng(39.916527, 116.397128),
-            zoom: 10
-        });
+    TMap('RYEBZ-NH7LD-YQ64O-P7Q4F-6VRCQ-IIFTY').then(qq => {
+      var map = new qq.maps.Map(document.getElementById("container"), {
+          // 地图的中心地理坐标。
+          center: new qq.maps.LatLng(39.916527, 116.397128),
+          zoom: 10
       });
+    });
+    console.log(888, homeData);
+    this.getHomeData();
   }
 }
 </script>
