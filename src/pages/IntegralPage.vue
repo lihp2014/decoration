@@ -23,6 +23,11 @@ export default {
         XButton,
         Box,
     },
+    created() {
+        this.$http.get('http://fitment.guoxiaoge.cn/api/personinfo').then(res => {
+            console.log(res)
+        })
+    },
     data() {
         return {
             integral: '',

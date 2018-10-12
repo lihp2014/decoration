@@ -2,7 +2,7 @@
     <div class='box'>
         <flexbox class="topbar">
             <flexbox-item  @click.native="goBack" span='1'><span> &lt;</span></flexbox-item>
-            <flexbox-item v-if="left"><p class='topfont' >{{text}}</p></flexbox-item>
+            <flexbox-item @click.native="goBack" v-if="left"><p class='topfont' >{{text}}</p></flexbox-item>
             <flexbox-item v-if="center"><p class='topfont' style='textAlign:center'>{{text}}</p></flexbox-item>
         </flexbox>
     </div>  

@@ -6,7 +6,27 @@
             <tab-item selected @on-item-click="onItemClick">第一市场</tab-item>
             <tab-item @on-item-click="onItemClick">第二市场</tab-item>
         </tab>
-        <div v-if="index == 0">111 Container</div>
+        <div v-if="index == 0">
+            <ul>
+                <li v-for="(item, index) in one" :key="index" class='partnerList'>
+                    <flexbox align='center' justify='flex-around'>
+                        <!-- <img :src="'http://fitment.guoxiaoge.cn' + item.avatar" class='pic'/> -->
+                        <flexbox-item>
+                            <div>
+                                <div class='nickname'>{{item.name}}</div>
+                                <div class='level'>{{item.level || '普通会员' }}</div>
+                            </div>      
+                        </flexbox-item>
+                        <flexbox-item>
+                            <div>
+                                <div class='nickname'>邀请{{item.inviteCount || 0 }}人</div>
+                                <div class='level'>邀请人: {{item.inviter}}</div>
+                            </div>
+                        </flexbox-item>
+                    </flexbox>
+                </li>
+            </ul>
+        </div>
         <div v-if="index == 1">222 Container</div>
     </div>
 </template>
@@ -24,8 +44,18 @@ export default {
     },
     data() {
         return {
-            index: 0
+            index: 0,
+            one: [],
+            two: [],
         }
+    },
+    created: function() {
+        this.$http.get(this.$url + 'api/vipuser').then(res => {
+            console.log(res)
+            if (res.data.code == 0) {
+                this.one = res.data.data.vipuser.list
+            }
+        })
     },
     methods: {
         onItemClick (index) {
@@ -39,6 +69,23 @@ export default {
 .banner {
     height: 300px;
     border: 1px solid;
+}
+.pic {
+    width: 82px;
+    height: 82px;
+}
+.level {
+    color: #ababab;
+    font-size: 22px;
+}
+.nickname {
+    color: #363636;
+    font-size: 24px;
+    /* text-align: right */
+}
+.partnerList {
+    padding: 20px;
+    border-bottom: 1px solid #DFDFDF;
 }
 </style>
 

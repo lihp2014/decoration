@@ -1,21 +1,21 @@
 <template>
     <div>
         <top-bar left='true' text='合伙人绑定'></top-bar>
-        <div class='banner'>123</div>
+        <div class='banner'>合伙人市场</div>
         <line-itme></line-itme>
         <ul>
             <li v-for="(item, index) in list" :key="index" class='partnerList'>
                 <flexbox align='center' justify='flex-around'>
-                    <img src='../assets/logo.png' class='pic'/>
+                    <img :src="'http://fitment.guoxiaoge.cn' + item.avatar" class='pic'/>
                     <flexbox-item>
                         <div>
-                            <div class='nickname'>{{item.name}}</div>
-                            <div class='level'>{{item.level}}</div>
+                            <div class='nickname'>{{item.nickname}}</div>
+                            <div class='level'>{{item.level || '普通会员' }}</div>
                         </div>      
                     </flexbox-item>
                     <flexbox-item>
                         <div>
-                            <div class='nickname'>邀请{{item.num}}人</div>
+                            <div class='nickname'>邀请{{item.inviteCount || 0 }}人</div>
                             <div class='level'>邀请人: {{item.inviter}}</div>
                         </div>
                     </flexbox-item>
@@ -76,13 +76,24 @@ export default {
                 },
             ]
         }
+    },
+    created: function() {
+        this.$http.get('http://fitment.guoxiaoge.cn/api/partner').then(res => {
+            console.log(res)
+            if (res.data.code == 0) {
+                this.list = res.data.data.partner.list
+            }
+        })
     }
 }
 </script>
 <style scoped>
 .banner {
     height: 300px;
+    line-height: 300px;
     border: 1px solid;
+    font-size: 36px;
+    text-align: center;
 }
 .pic {
     width: 82px;

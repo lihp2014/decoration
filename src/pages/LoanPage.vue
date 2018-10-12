@@ -11,7 +11,8 @@
             <x-button mini>是</x-button>
         </div>
         <box gap="50px 10px">
-            <x-button link='/result' type='primary' class='submit' >提交</x-button>
+            <!-- link='/result' -->
+            <x-button type='primary' class='submit' @click.native='submit'>提交</x-button>
         </box>     
     </div>  
 </template>
@@ -33,6 +34,23 @@ export default {
             phone: '',
             money: '',
             weixin: '',
+        }
+    },
+    methods: {
+        submit () {
+            console.log(this.name, this.phone)
+            let params = new URLSearchParams();
+            params.append('name', this.name);
+            params.append('phone', this.phone);
+            params.append('money', this.money);
+            params.append('weixin', this.weixin);
+            params.append('ishavehouse', false);
+            this.$http.post(this.$url + 'api/loanapply', params).then(res => {
+                console.log(res)
+                // if (res.data.code == 0) {
+                //     this.one = res.data.data.vipuser.list
+                // }
+            })
         }
     }
 }

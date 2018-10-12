@@ -1,13 +1,23 @@
 <template>
   <div class="hello">
-    <div class="information">myPage</div>
+    <div class="information">
+      <flexbox class='userbox'>
+        <flexbox-item :span="4">
+          <img id="pic" :src="'http://fitment.guoxiaoge.cn' + userinfo.avatar" />
+        </flexbox-item>
+        <flexbox-item>
+          <div>{{userinfo.nickname}}</div>
+          <div>ID: </div>
+        </flexbox-item>
+      </flexbox>
+    </div>
     <flexbox class='jifen'>
       <flexbox-item>
-        <div class='number'>123456</div>
+        <div class='number'>{{userinfo.totalPoints}}</div>
         <div class='grey'>总积分</div>
       </flexbox-item>
       <flexbox-item>
-        <div class='number'>123456</div>
+        <div class='number'>{{userinfo.presentPoints || 0 }}</div>
         <div class='grey'>现有积分</div>
       </flexbox-item>
       <flexbox-item>
@@ -56,7 +66,16 @@ export default {
     return {
       index: 3,
       showcode: false,
+      userinfo: null,
     }
+  },
+  created: function() {
+    this.$http.get('http://fitment.guoxiaoge.cn/api/personinfo').then(res => {
+        console.log(res)
+        if (res.data.code == 0) {
+          this.userinfo = res.data.data.personinfo.list[0]
+        }
+    })
   },
   methods: {
     spread: function() {
@@ -101,6 +120,22 @@ export default {
 .information {
   height: 370px;
   border: 1px solid #000;
+  .userbox {
+    margin-top: 50px;
+    margin-left: 80px;
+    div {
+      font-size: 34px;
+      text-align: left;
+    }
+    #pic {
+      width: 148px;
+      height: 148px;
+      border-radius: 50%;
+      border: 1px solid #B78D8F;
+      // position: absolute;
+      // left: 80px;
+    }
+  }
 }
 .line {
   height:20px;
