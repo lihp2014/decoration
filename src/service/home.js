@@ -1,5 +1,5 @@
 import req from '../utils/request'
 
-export const homeData = param => {
-  return req.get('/home', param)
+export const getBanner = param => {
+  return req.get('/banner', param)
 }

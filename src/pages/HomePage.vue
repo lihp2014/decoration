@@ -80,7 +80,7 @@ import bottomBar from '../components/BottomBar'
 import exampleList from '../components/ExampleList'
 import newsList from '../components/NewsList'
 import { TMap } from '../utils/TMap'
-import { homeData } from '../service/home'
+import { getBanner } from '../service/home'
 
 const baseList = [{
   img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
@@ -104,12 +104,15 @@ export default {
   data () {
     return {
       index: 0,
-      list: baseList
+      list: []
     }
   },
   methods: {
-    async getHomeData () {
-      const res = await homeData();
+    async getBannerData () {
+      const res = await getBanner();
+      if (res.data.code === 0) {
+        this.list = res.data.data.banner.list;
+      }
     }
   },
   mounted() {
@@ -120,8 +123,7 @@ export default {
           zoom: 10
       });
     });
-    console.log(888, homeData);
-    this.getHomeData();
+    this.getBannerData();
   }
 }
 </script>
