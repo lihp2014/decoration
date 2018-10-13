@@ -1,52 +1,14 @@
 <template>
     <flexbox wrap="wrap" :gutter="0">
-        <flexbox-item :span="1/2">
+        <flexbox-item :span="1/2" v-for="(item, key) in list" :key="key">
           <div class="example-item">
             <div class="inner-item">
-              <img src="https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg"/>
-              <p class="intro">现代简约风格三室两厅装修效果</p>
+              <img :src="item.backgroundImage"/>
+              <p class="intro">{{item.description}}</p>
               <p>
-                <span class="view">5000浏览</span>
-                <span class="area">120㎡</span>
+                <span class="view">{{item.view}}浏览</span>
+                <span class="area">{{item.area}}㎡</span>
               </p>
-            </div>
-          </div>
-        </flexbox-item>
-        <flexbox-item :span="1/2">
-          <div class="example-item">
-            <div class="inner-item">
-              <img src="https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg"/>
-              <p class="intro">现代简约风格三室两厅装修效果</p>
-              <p>
-                <span class="view">5000浏览</span>
-                <span class="area">120㎡</span>
-              </p>
-            </div>
-          </div>
-        </flexbox-item>
-        <flexbox-item :span="1/2">
-          <div class="example-item">
-            <div class="inner-item">
-              <img src="https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg"/>
-              <p class="intro">现代简约风格三室两厅装修效果</p>
-              <p>
-                <span class="view">5000浏览</span>
-                <span class="area">120㎡</span>
-              </p>
-            </div>
-          </div>
-        </flexbox-item>
-        <flexbox-item :span="1/2">
-          <div class="example-item">
-            <div class="inner-item">
-              <img src="https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg"/>
-              <div class="">
-                <p class="intro">现代简约风格三室两厅装修效果</p>
-                <p>
-                  <span class="view">5000浏览</span>
-                  <span class="area">120㎡</span>
-                </p>
-              </div>
             </div>
           </div>
         </flexbox-item>
