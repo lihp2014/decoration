@@ -2,7 +2,7 @@
     <div>
         <top-bar text='新闻动态' center='false'></top-bar>
         <div>
-            <news-list></news-list>
+            <news-list :list="news"></news-list>
         </div>
     </div>
 </template>
@@ -11,6 +11,7 @@
 import topBar from '../components/Topbar'
 import newsList from '../components/NewsList'
 import { Flexbox, FlexboxItem } from 'vux'
+import { getNews } from '../service/home'
 
 export default {
     components: {
@@ -21,7 +22,19 @@ export default {
     },
     data() {
         return {
+            news: []
         }
+    },
+    methods: {
+        async getNewsData () {
+            const res = await getNews();
+            if (res.data.code === 0) {
+                this.news = res.data.data.news.list;
+            }
+        },
+    },
+    mounted() {
+        this.getNewsData();
     }
 }
 </script>

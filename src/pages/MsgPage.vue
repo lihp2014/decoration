@@ -6,19 +6,19 @@
             <img src="../assets/msgPic.jpg">
         </div>
         <flexbox class="wrap">
-            <popup-picker :data="list1" :columns="3" v-model="value1"></popup-picker>
+            <popup-picker :data="list1" :columns="3" v-model="address"></popup-picker>
         </flexbox>
         <flexbox class="wrap">
             <x-input placeholder="请输入您的房屋面积" v-model="area"></x-input>
         </flexbox>
         <flexbox class="wrap">
-            <popup-picker :data="list2" v-model="value2"></popup-picker>
+            <popup-picker :data="list2" v-model="room"></popup-picker>
         </flexbox>
         <flexbox class="wrap">
             <x-input placeholder="输入号码，方便和您联系" v-model="phone"></x-input>
         </flexbox>
         <flexbox class="btn-wrap">
-            <x-button type='primary' class="btn">提交</x-button>
+            <x-button type='primary' class="btn" @click.native='submit'>提交</x-button>
         </flexbox>
     </div>
     <bottom-Bar  v-bind={index}></bottom-Bar>
@@ -26,8 +26,10 @@
 </template>
 
 <script>
-import { Tabbar, TabbarItem, XHeader, Flexbox, PopupPicker, XInput, XButton } from 'vux'
+import { Tabbar, TabbarItem, XHeader, Flexbox, PopupPicker, XInput, XButton, AlertModule } from 'vux'
 import bottomBar from '../components/BottomBar'
+import { postMsg } from '../service/home'
+
 export default {
   name: 'MsgPage',
   components: {
@@ -80,17 +82,49 @@ export default {
             value: '洪山区',
             parent: '武汉'
         }],
-        value1: ['湖北', '武汉', '洪山'],
+        address: ['湖北', '武汉', '洪山'],
         list2: [
         ['1室', '2室', '3室'],
         ['1厅', '2厅', '3厅'],
         ['1厨', '0厨'],
         ['1卫', '2卫', '3卫'],
         ['1阳台', '2阳台', '3阳台']],
-        value2: ['1室', '1厅', '1厨', '1卫', '1阳台'],
+        room: ['1室', '1厅', '1厨', '1卫', '1阳台'],
         area: '',
         phone: ''
     }
+  },
+  methods: {
+      submit () {
+        //   console.log(this.address);
+          let params = new FormData();
+          params.append('address', this.address);
+          params.append('area', this.area);
+          params.append('room', this.room);
+          params.append('phone', this.phone);
+          postMsg(params).then(res => {
+              if (res.data.code === 0) {
+                  this.showModuleAuto();
+              }
+          })
+      },
+      showModule () {
+        AlertModule.show({
+            content: '提交成功',
+            onShow () {
+                console.log('Module: I\'m showing')
+            },
+            onHide () {
+                // location.reload();
+            }
+        })
+      },
+    showModuleAuto () {
+      this.showModule()
+      setTimeout(() => {
+        AlertModule.hide()
+      }, 2000)
+    },
   }
 }
 </script>

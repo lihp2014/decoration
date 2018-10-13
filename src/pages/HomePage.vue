@@ -40,7 +40,7 @@
             </cell-box>
         </flexbox-item>
       </flexbox>
-      <example-list></example-list>
+      <example-list :list="examples"></example-list>
     </flexbox>
     <flexbox class="news-box" orient="vertical">
       <flexbox :gutter="100">
@@ -53,7 +53,7 @@
             </cell-box>
         </flexbox-item>
       </flexbox>
-      <news-list></news-list>
+      <news-list :list="news"></news-list>
     </flexbox>
     <flexbox class="map-box" orient="vertical">
       <flexbox :gutter="100">
@@ -66,7 +66,7 @@
       </flexbox>
       <flexbox>
         <flexbox-item>
-          <div id="container" style="width: 350px; height: 120px;"></div>
+          <div id="container" style="width: 100%; height: 120px;"></div>
         </flexbox-item>
       </flexbox>
     </flexbox>
@@ -80,7 +80,7 @@ import bottomBar from '../components/BottomBar'
 import exampleList from '../components/ExampleList'
 import newsList from '../components/NewsList'
 import { TMap } from '../utils/TMap'
-import { getBanner } from '../service/home'
+import { getBanner, getNews, getExamples } from '../service/home'
 
 const baseList = [{
   img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
@@ -104,7 +104,9 @@ export default {
   data () {
     return {
       index: 0,
-      list: []
+      list: [],
+      news: [],
+      examples: []
     }
   },
   methods: {
@@ -112,6 +114,18 @@ export default {
       const res = await getBanner();
       if (res.data.code === 0) {
         this.list = res.data.data.banner.list;
+      }
+    },
+    async getNewsData () {
+      const res = await getNews();
+      if (res.data.code === 0) {
+        this.news = res.data.data.news.list;
+      }
+    },
+    async getExampleData () {
+      const res = await getExamples();
+      if (res.data.code === 0) {
+        this.examples = res.data.data.examples.list;
       }
     }
   },
@@ -124,6 +138,8 @@ export default {
       });
     });
     this.getBannerData();
+    this.getNewsData();
+    this.getExampleData();
   }
 }
 </script>

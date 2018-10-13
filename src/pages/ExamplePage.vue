@@ -2,7 +2,7 @@
     <div>
         <top-bar text='合作案例' center='false'></top-bar>
         <div>
-            <example-list></example-list>
+            <example-list :list="examples"></example-list>
         </div>
     </div>
 </template>
@@ -11,6 +11,7 @@
 import topBar from '../components/Topbar'
 import exampleList from '../components/ExampleList'
 import { Flexbox, FlexboxItem } from 'vux'
+import { getExamples } from '../service/home'
 
 export default {
     components: {
@@ -21,7 +22,19 @@ export default {
     },
     data() {
         return {
+            examples: []
         }
+    },
+    methods: {
+        async getExampleData () {
+            const res = await getExamples();
+            if (res.data.code === 0) {
+                this.examples = res.data.data.examples.list;
+            }
+        }
+    },
+    mounted() {
+        this.getExampleData();
     }
 }
 </script>
