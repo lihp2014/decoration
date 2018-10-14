@@ -8,8 +8,16 @@ export const getNews = param => {
   return req.get('/news', param)
 }
 
+export const getNewsDetail = param => {
+  return req.get('/news/' + param , param)
+}
+
 export const getExamples = param => {
   return req.get('/examples', param);
+}
+
+export const getExampleDetail = param => {
+  return req.get('/examples/' + param, param)
 }
 
 // 留言板
