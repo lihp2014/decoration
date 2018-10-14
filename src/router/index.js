@@ -13,6 +13,9 @@ import VIPPage from '@/pages/VIPPage'
 import ExamplePage from '@/pages/ExamplePage'
 import AboutPage from '@/pages/AboutPage'
 import NewsPage from '@/pages/NewsPage'
+import NewsDetail from '@/pages/NewsDetail'
+import ExampleDetail from '@/pages/ExampleDetail'
+
 Vue.use(Router)
 
 export default new Router({
@@ -86,5 +89,15 @@ export default new Router({
       name: '新闻动态',
       component: NewsPage
     },
+    {
+      path: '/newsDetail/:id',
+      name: '新闻详情',
+      component: NewsDetail
+    },
+    {
+      path: '/exampleDetail/:id',
+      name: '装修案例详情',
+      component: ExampleDetail
+    }
   ]
 })

@@ -1,6 +1,6 @@
 <template>
     <flexbox wrap="wrap" :gutter="0">
-        <flexbox-item :span="1/2" v-for="(item, key) in list" :key="key">
+        <flexbox-item :span="1/2" v-for="(item, key) in list" :key="key" @click.native="gotoExample(item.id)">
           <div class="example-item">
             <div class="inner-item">
               <img :src="item.backgroundImage"/>
@@ -26,6 +26,11 @@ export default {
     props: ['list'],
     data() {
         return {
+        }
+    },
+    methods: {
+        gotoExample(id = 1) {
+            location.href="#/exampleDetail/"+id;
         }
     }
 }

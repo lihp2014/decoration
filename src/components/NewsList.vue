@@ -1,6 +1,6 @@
 <template>
     <flexbox class="news-wrap"  orient="vertical">
-        <flexbox class="news-item" v-for="(item, key) in list" :key="key">
+        <flexbox class="news-item" v-for="(item, key) in list" :key="key" @click.native="gotoNews(item.id)">
             <flexbox-item :span="1/3">
                 <img :src="item.backgroundImage"/>
             </flexbox-item>
@@ -26,6 +26,12 @@ export default {
     props: ['list'],
     data() {
         return {
+            // id: 0
+        }
+    },
+    methods: {
+        gotoNews(id = 2) {
+            location.href="#/newsDetail/"+id;
         }
     }
 }
