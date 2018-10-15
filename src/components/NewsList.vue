@@ -30,7 +30,7 @@ export default {
         }
     },
     methods: {
-        gotoNews(id = 2) {
+        gotoNews(id) {
             location.href="#/newsDetail/"+id;
         }
     }
