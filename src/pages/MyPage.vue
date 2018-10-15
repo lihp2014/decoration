@@ -3,7 +3,7 @@
     <div class="information">
       <flexbox class='userbox'>
         <flexbox-item :span="4">
-          <img id="pic" :src="'http://fitment.guoxiaoge.cn' + userinfo.avatar" />
+          <img id="pic" :src="userinfo.avatar" />
         </flexbox-item>
         <flexbox-item>
           <div>{{userinfo.nickname}}</div>
@@ -67,7 +67,7 @@ export default {
     return {
       index: 3,
       showcode: false,
-      userinfo: null,
+      userinfo: {},
     }
   },
   created: function() {
