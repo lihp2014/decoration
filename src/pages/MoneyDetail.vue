@@ -2,16 +2,16 @@
     <div>
         <top-bar text='提现记录' center='true'></top-bar>
         <div>
-            <div class='moneytitle'>04月</div>
+            <div class='moneytitle'>10月</div>
             <ul>
-                <li class='list'>
+                <li v-for="(item, index) in list" :key="index" class='list'>
                     <flexbox align='flex-between' justify='center'>
                         <flexbox-item>
-                            <div class='green'>转微信</div>
-                            <div class='date'>2018年4月26日 12:00</div>
+                            <div class='green'>{{item.withdrawal_address}}</div>
+                            <div class='date'>{{item.created_at}}</div>
                         </flexbox-item>
                         <flexbox-item style='text-align:right'>
-                            <span class='green'>999</span>
+                            <span class='green'>{{item.money}}</span>
                         </flexbox-item>
                     </flexbox>
                 </li>
@@ -22,6 +22,7 @@
 <script>
 import topBar from '../components/Topbar'
 import { Flexbox, FlexboxItem } from 'vux'
+import { moneyDetail } from '../service/home'
 
 export default {
     components: {
@@ -31,13 +32,28 @@ export default {
     },
     data() {
         return {
-            data: [
+            month: '10月',
+            list: [
                 {
-                    month: '04月',
-                    items: []
-                }
-            ],
+                    created_at: "2018-10-12 10:23:47",
+                    money: 100,
+                    withdrawal_address: "微信"
+                },
+                {
+                    created_at: "2018-10-12 16:40:01",
+                    money: 100,
+                    withdrawal_address: "微信"
+                },
+            ]
         }
+    },
+    created: function() {
+        moneyDetail().then(res => {
+            console.log(res)
+            if (res.data.code == 0) {
+                this.list = res.data.data.pointfor.list
+            }
+        })
     }
 }
 </script>

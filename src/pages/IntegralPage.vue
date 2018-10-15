@@ -2,19 +2,20 @@
     <div>
         <top-bar text='积分兑换' center='true'></top-bar>
         <div class='intBox'>
-            <h1 class='integral'>23147.56</h1>
+            <h1 class='integral'>{{integral}}</h1>
             <p class='canInt'>今日可提现积分</p>
         </div>     
         <div class='notices'>每次兑换金额不得低于100元, 余额低于100时不可提现</div>
-        <x-input class='inputbox' placeholder='输入提现金额' title='积分提现' v-model="integral"></x-input>
+        <x-input class='inputbox' placeholder='输入提现金额' title='积分提现' v-model="point"></x-input>
         <box gap="50px 10px">
-            <x-button type="primary" class='getmoney' link='/moneyDetail'>提现</x-button>
+            <x-button type="primary" class='getmoney' @click.native="withdraw">提现</x-button>
         </box>
     </div>
 </template>
 <script>
 import topBar from '../components/Topbar'
-import { XInput, XButton, Box } from 'vux'
+import { XInput, XButton, Box, Toast } from 'vux'
+import { getPersonInfo, withdrawPoint } from '../service/home'
 
 export default {
     components: {
@@ -22,15 +23,41 @@ export default {
         XInput,
         XButton,
         Box,
+        Toast,
     },
     created() {
-        this.$http.get('http://fitment.guoxiaoge.cn/api/personinfo').then(res => {
-            console.log(res)
+        getPersonInfo().then(res => {
+            if (res.data.code == 0) {
+                this.integral = res.data.data.personinfo.list[0].presentPoints
+                this.userId = res.data.data.personinfo.list[0].user_id
+            }
         })
     },
     data() {
         return {
-            integral: '',
+            integral: 0,
+            point: '',
+            userId: null
+        }
+    },
+    methods: {
+        withdraw: function() {
+            let params = new FormData();
+            params.append('points', this.integral);
+            params.append('money', this.point.toString());
+            params.append('money', this.money);
+            params.append('user_id', this.weixin);
+            params.append('withdrawal_address', 'weixin');
+            withdrawPoint(params).then(res => {
+                console.log(res)             
+                 if (res.data.code == 0) {
+                    setTimeout(() => {
+                        this.$router.push({path: '/moneyDetail'})
+                    })
+                } else {
+                    this.$vux.toast.text('hello')
+                }
+            })
         }
     }
 }

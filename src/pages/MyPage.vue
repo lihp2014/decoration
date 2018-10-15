@@ -7,7 +7,7 @@
         </flexbox-item>
         <flexbox-item>
           <div>{{userinfo.nickname}}</div>
-          <div>ID: </div>
+          <div>ID: {{userinfo.user_id}}</div>
         </flexbox-item>
       </flexbox>
     </div>
@@ -21,7 +21,7 @@
         <div class='grey'>现有积分</div>
       </flexbox-item>
       <flexbox-item>
-        <div class='number'>123456</div>
+        <div class='number'>{{userinfo.user_level}}</div>
         <div class='grey'>等级</div>
       </flexbox-item>
     </flexbox>
@@ -36,7 +36,7 @@
     <x-dialog v-model="showcode"  hide-on-blur :dialog-style="{'max-width': '100%', width: '80%', height: '50%', 'background-color': 'transparent', margin: 'auto'}" >
       <div class="dialog">
         <p class='codetitle'>推广二维码</p>
-        <qrcode value="https://vux.li?x-page=demo_qrcode"></qrcode>
+        <qrcode value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode>
       </div>
       <box gap="20px 50px">
         <x-button class='btn' @click.native="spread">下载二维码</x-button>
@@ -48,6 +48,7 @@
 <script>
 import { Flexbox, FlexboxItem, CellBox, Group, XDialog, XButton, Box, Qrcode } from 'vux'
 import bottomBar from '../components/BottomBar'
+import { getPersonInfo } from '../service/home'
 
 export default {
   name: 'MyPage',
@@ -70,8 +71,7 @@ export default {
     }
   },
   created: function() {
-    this.$http.get('http://fitment.guoxiaoge.cn/api/personinfo').then(res => {
-        console.log(res)
+    getPersonInfo().then(res => {
         if (res.data.code == 0) {
           this.userinfo = res.data.data.personinfo.list[0]
         }

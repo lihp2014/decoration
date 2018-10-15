@@ -29,6 +29,7 @@
 import topBar from '../components/Topbar'
 import lineItme from '../components/Line'
 import { Flexbox, FlexboxItem, XButton } from 'vux'
+import { partnerBind } from '../service/home'
 
 export default {
     name: 'PartnerPage',
@@ -78,7 +79,7 @@ export default {
         }
     },
     created: function() {
-        this.$http.get('http://fitment.guoxiaoge.cn/api/partner').then(res => {
+        partnerBind().then(res => {
             console.log(res)
             if (res.data.code == 0) {
                 this.list = res.data.data.partner.list

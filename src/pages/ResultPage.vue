@@ -1,7 +1,7 @@
 <template>
     <div >
         <top-bar text='贷款申请' left='true'></top-bar>
-        <div >
+        <div class='result'>
             <icon type="success" is-msg class='icon'></icon>
             <p>提交成功</p>
             <p class='notice'>预计1至3个月回复</p>
@@ -21,7 +21,7 @@ export default {
 </script>
 <style lang="less">
     .result {
-        // position:relative;
+        margin: 150px;
     }
     .icon {
         // position:absolute;

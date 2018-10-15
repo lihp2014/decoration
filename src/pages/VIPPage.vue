@@ -14,7 +14,7 @@
                         <flexbox-item>
                             <div>
                                 <div class='nickname'>{{item.name}}</div>
-                                <div class='level'>{{item.level || '普通会员' }}</div>
+                                <div class='level'>{{item.user_level}}</div>
                             </div>      
                         </flexbox-item>
                         <flexbox-item>
@@ -33,6 +33,7 @@
 <script>
 import topBar from '../components/Topbar'
 import { Flexbox, FlexboxItem, Tab, TabItem } from 'vux'
+import { vipSpread } from '../service/home'
 
 export default {
     components: {
@@ -50,7 +51,7 @@ export default {
         }
     },
     created: function() {
-        this.$http.get(this.$url + 'api/vipuser').then(res => {
+        vipSpread().then(res => {
             console.log(res)
             if (res.data.code == 0) {
                 this.one = res.data.data.vipuser.list

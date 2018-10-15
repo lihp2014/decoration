@@ -24,3 +24,33 @@ export const getExampleDetail = param => {
 export const postMsg = param => {
   return req.post('/messageuser', param);
 }
+
+// 贷款申请
+export const loanApply = param => {
+  return req.post('/loanapply', param);
+}
+
+// 个人中心
+export const getPersonInfo = param => {
+  return req.get('/personinfo', param)
+}
+
+// 合伙人
+export const partnerBind = param => {
+  return req.get('/partner', param)
+}
+
+// 积分明细
+export const moneyDetail = param => {
+  return req.get('/pointfor', param)
+}
+
+// 积分提现
+export const withdrawPoint = param => {
+  return req.post('/addpointfor', param)
+}
+
+// VIP
+export const vipSpread = param => {
+  return req.get('/vipuser', param)
+}

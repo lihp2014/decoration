@@ -7,11 +7,16 @@
         <x-input class='inputbox' title='微信号码' v-model="weixin"></x-input>
         <div class='havehouse'>名下是否有房</div>
         <div>
-            <x-button mini type='primary'>否</x-button>
-            <x-button mini>是</x-button>
+            <div v-if="haveHouse == 0">
+                <x-button mini  type='primary'>否</x-button>
+                <x-button mini @click.native='changeState(1)'>是</x-button>
+            </div>
+            <div v-if="haveHouse == 1">
+                <x-button mini @click.native='changeState(0)'>否</x-button>
+                <x-button mini type='primary'>是</x-button>
+            </div>
         </div>
         <box gap="50px 10px">
-            <!-- link='/result' -->
             <x-button type='primary' class='submit' @click.native='submit'>提交</x-button>
         </box>     
     </div>  
@@ -19,6 +24,7 @@
 <script>
 import topBar from '../components/Topbar'
 import { XInput, XButton, Box } from 'vux'
+import { loanApply } from '../service/home'
 
 export default {
     name: 'LoanPage',
@@ -34,22 +40,28 @@ export default {
             phone: '',
             money: '',
             weixin: '',
+            haveHouse: 0,
         }
     },
     methods: {
+        changeState(num) {
+            this.haveHouse = num
+        },
         submit () {
             console.log(this.name, this.phone)
-            let params = new URLSearchParams();
+            let params = new FormData();
             params.append('name', this.name);
             params.append('phone', this.phone);
             params.append('money', this.money);
             params.append('weixin', this.weixin);
-            params.append('ishavehouse', false);
-            this.$http.post(this.$url + 'api/loanapply', params).then(res => {
+            params.append('ishavehouse', this.haveHouse);
+            loanApply(params).then(res => {
                 console.log(res)
-                // if (res.data.code == 0) {
-                //     this.one = res.data.data.vipuser.list
-                // }
+                if (res.data.code == 0) {
+                    setTimeout(() => {
+                        this.$router.push({path: '/result'});
+                    });
+                }
             })
         }
     }
