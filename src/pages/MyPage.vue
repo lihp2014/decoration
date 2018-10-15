@@ -1,16 +1,18 @@
 <template>
   <div class="hello">
+    <div class="shadow"> </div>
     <div class="information">
+      <top-bar text='' center='true'></top-bar>
       <flexbox class='userbox'>
         <flexbox-item :span="4">
-          <img id="pic" :src="'http://fitment.guoxiaoge.cn' + userinfo.avatar" />
+          <img id="pic" :src="this.$url + userinfo.avatar" />
         </flexbox-item>
         <flexbox-item>
-          <div>{{userinfo.nickname}}</div>
-          <div>ID: {{userinfo.user_id}}</div>
+          <div class='nickname'>{{userinfo.nickname}}</div>
+          <div class='nickname'>ID: {{userinfo.user_id}}</div>
         </flexbox-item>
       </flexbox>
-    </div>
+    </div> 
     <flexbox class='jifen'>
       <flexbox-item>
         <div class='number'>{{userinfo.totalPoints}}</div>
@@ -27,19 +29,19 @@
     </flexbox>
     <div class='line'></div>
     <group>
-      <cell-box class='list' is-link link='partner'>合伙人绑定</cell-box>
-      <cell-box class='list' is-link link='integral'>积分兑换</cell-box>
-      <cell-box class='list' is-link @click.native="spread">推广码</cell-box>
-      <cell-box class='last list' is-link link='vip'>vip推广</cell-box>
+      <cell-box class='list' is-link link='partner'><img src="../assets/part.png" class='icon'/>合伙人绑定</cell-box>
+      <cell-box class='list' is-link link='integral'><img src="../assets/jifen.png" class='icon'/>积分兑换</cell-box>
+      <cell-box class='list' is-link @click.native="spread"><img src="../assets/tuiguang.png" class='icon'/>推广码</cell-box>
+      <cell-box class='last list' is-link link='vip'><img src="../assets/vipp.png" class='icon'/>vip推广</cell-box>
     </group>  
     <bottom-Bar v-bind={index}></bottom-Bar>
     <x-dialog v-model="showcode"  hide-on-blur :dialog-style="{'max-width': '100%', width: '80%', height: '50%', 'background-color': 'transparent', margin: 'auto'}" >
       <div class="dialog">
         <p class='codetitle'>推广二维码</p>
-        <qrcode value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode>
+        <qrcode id='qrcode' value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode>
       </div>
       <box gap="20px 50px">
-        <x-button class='btn' @click.native="spread">下载二维码</x-button>
+        <x-button class='btn' @click.native="spread('download')">下载二维码</x-button>
       </box>
     </x-dialog>
   </div>
@@ -49,6 +51,7 @@
 import { Flexbox, FlexboxItem, CellBox, Group, XDialog, XButton, Box, Qrcode } from 'vux'
 import bottomBar from '../components/BottomBar'
 import { getPersonInfo } from '../service/home'
+import topBar from '../components/Topbar'
 
 export default {
   name: 'MyPage',
@@ -62,24 +65,46 @@ export default {
     XButton,
     Box,
     Qrcode,
+    topBar,
   },
   data () {
     return {
       index: 3,
       showcode: false,
-      userinfo: null,
+      userinfo: {
+        avatar: "/upload/goods/5bbb25b9c858c.jpg",
+        nickname: "guoxiaoge11",
+        presentPoints: 500,
+        totalPoints: 1555,
+        user_id: 1,
+        user_level: "普通會員",
+      },
     }
   },
   created: function() {
     getPersonInfo().then(res => {
+      console.log(res)
         if (res.data.code == 0) {
           this.userinfo = res.data.data.personinfo.list[0]
         }
     })
   },
   methods: {
-    spread: function() {
+    spread: function(type) {
       this.showcode = !this.showcode
+
+      if (type == 'download') {
+        //找到canvas标签
+        let myCanvas = document.querySelector('#qrcode').getElementsByTagName('canvas');
+        //创建一个a标签节点
+        let a = document.createElement("a")
+        //设置a标签的href属性（将canvas变成png图片）
+        a.href = myCanvas[0].toDataURL('image/png').replace('image/png', 'image/octet-stream')
+        //设置下载文件的名字
+        a.download = "推广二维码"
+        //点击
+        a.click()
+      }
     }
   }
 }
@@ -117,11 +142,22 @@ export default {
   border-radius: 20px;
   background: #fff;
 }
+.shadow {
+  height: 370px;
+  width: 100%;
+  border: 1px solid #ccc;
+  background: url('https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg') center center;
+  position: absolute;
+  -webkit-filter:blur(3px);
+  filter:blur(3px);
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 .information {
   height: 370px;
-  border: 1px solid #000;
+  border: 1px solid #ccc;
   .userbox {
-    margin-top: 50px;
     margin-left: 80px;
     div {
       font-size: 34px;
@@ -135,11 +171,21 @@ export default {
       // position: absolute;
       // left: 80px;
     }
+    .nickname {
+      color: #fff;
+      // font-size: 34px;
+      font-weight: 500;
+    }
   }
 }
 .line {
   height:20px;
   background:rgb(246,246,246);
+}
+.icon {
+  width: 45px;
+  height: 45px;
+  margin: 0 10px;
 }
 .last {
   border-bottom: 1px solid #eee;

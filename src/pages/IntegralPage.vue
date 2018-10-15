@@ -44,10 +44,9 @@ export default {
         withdraw: function() {
             let params = new FormData();
             params.append('points', this.integral);
-            params.append('money', this.point.toString());
-            params.append('money', this.money);
-            params.append('user_id', this.weixin);
-            params.append('withdrawal_address', 'weixin');
+            params.append('money', this.point);
+            params.append('user_id', this.userId);
+            params.append('withdrawal_address', '微信');
             withdrawPoint(params).then(res => {
                 console.log(res)             
                  if (res.data.code == 0) {
@@ -55,7 +54,7 @@ export default {
                         this.$router.push({path: '/moneyDetail'})
                     })
                 } else {
-                    this.$vux.toast.text('hello')
+                    // this.$vux.toast.text('hello')
                 }
             })
         }

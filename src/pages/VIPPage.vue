@@ -1,8 +1,10 @@
 <template>
     <div>
         <top-bar text='vip推广' left='true'></top-bar>
-        <div class='banner'></div>
-        <tab>
+        <div class='banner'>
+            <img class='banner' src='../assets/vip.jpg'/>
+        </div>
+        <tab class='tabs'>
             <tab-item selected @on-item-click="onItemClick">第一市场</tab-item>
             <tab-item @on-item-click="onItemClick">第二市场</tab-item>
         </tab>
@@ -10,7 +12,7 @@
             <ul>
                 <li v-for="(item, index) in one" :key="index" class='partnerList'>
                     <flexbox align='center' justify='flex-around'>
-                        <!-- <img :src="'http://fitment.guoxiaoge.cn' + item.avatar" class='pic'/> -->
+                        <img :src="item.avatar" class='pic'/>
                         <flexbox-item>
                             <div>
                                 <div class='nickname'>{{item.name}}</div>
@@ -70,6 +72,9 @@ export default {
 .banner {
     height: 300px;
     border: 1px solid;
+}
+.tabs {
+    margin-top: 20px;
 }
 .pic {
     width: 82px;

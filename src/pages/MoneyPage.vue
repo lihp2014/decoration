@@ -1,12 +1,14 @@
 <template>
   <div class="hello">
-    <router-link to='/loan'><span>moneyPage</span></router-link>
-    <bottom-Bar  v-bind={index}></bottom-Bar>
+    <top-bar text='' left='true' money='true'></top-bar>
+    <img src="../assets/money.jpg">
+    <x-button type='primary' class='application' link='/loan'>立即申请</x-button>
   </div>
 </template>
 
 <script>
-import { Tabbar, TabbarItem } from 'vux'
+import { Tabbar, TabbarItem, XButton } from 'vux'
+import topBar from '../components/Topbar'
 import bottomBar from '../components/BottomBar'
 export default {
   name: 'MoneyPage',
@@ -14,6 +16,8 @@ export default {
     Tabbar,
     TabbarItem,
     bottomBar,
+    topBar,
+    XButton,
   },
   data () {
     return {
@@ -25,18 +29,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
+.hello {
+    width: 100%;
+    height: 100%;
+    background: #B3DEE0 !important; 
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+.application {
+      padding: 20px;
+    }
 </style>

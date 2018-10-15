@@ -1,5 +1,5 @@
 <template>
-    <div class='box'>
+    <div :class="{ 'money': money === true, 'box': money === false }">
         <flexbox class="topbar">
             <flexbox-item  @click.native="goBack" span='1'><span> &lt;</span></flexbox-item>
             <flexbox-item @click.native="goBack" v-if="left"><p class='topfont' >{{text}}</p></flexbox-item>
@@ -14,7 +14,7 @@ export default {
         Flexbox,
         FlexboxItem,
     },
-    props: ['text','left','center'],
+    props: ['text','left','center', 'money'],
     methods: {
         goBack: function (event) {
             this.$router.go(-1)
@@ -29,7 +29,11 @@ export default {
         height: 100px;
     }
     .box {
-        height: 40px,
+        height: 40px;
+    }
+    .money {
+        height: 40px;
+        background: #B3DEE0;
     }
     .topfont {
         font-size: 36px;

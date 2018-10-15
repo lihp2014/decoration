@@ -1,12 +1,14 @@
 <template>
     <div>
         <top-bar left='true' text='合伙人绑定'></top-bar>
-        <div class='banner'>合伙人市场</div>
+        <div class='banner'>
+            <img class='banner' src='../assets/partner.jpg'/>
+        </div>
         <line-itme></line-itme>
         <ul>
             <li v-for="(item, index) in list" :key="index" class='partnerList'>
                 <flexbox align='center' justify='flex-around'>
-                    <img :src="'http://fitment.guoxiaoge.cn' + item.avatar" class='pic'/>
+                    <img :src="item.avatar" class='pic'/>
                     <flexbox-item>
                         <div>
                             <div class='nickname'>{{item.nickname}}</div>
