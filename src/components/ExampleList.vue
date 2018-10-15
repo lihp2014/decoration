@@ -29,7 +29,7 @@ export default {
         }
     },
     methods: {
-        gotoExample(id = 1) {
+        gotoExample(id) {
             location.href="#/exampleDetail/"+id;
         }
     }
