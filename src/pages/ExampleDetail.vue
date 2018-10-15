@@ -11,7 +11,7 @@
             <div class="close-btn">
                 <p class="close">x</p>
             </div>
-            <div class="start-btn">
+            <div class="start-btn" @click="gotoMsg">
                 <p class="start">开启我的装修</p>
             </div>
         </div>
@@ -42,6 +42,11 @@ export default {
                 this.data = res.data.data.list[0];
             }
         });
+    },
+    methods: {
+        gotoMsg () {
+            location.href="#/msg";
+        }
     }
 }
 </script>
@@ -74,6 +79,7 @@ export default {
   .close {
       width: 65px;
       height: 65px;
+      line-height: 65px;
       border: 1px solid #fff;
       border-radius: 50%;
       margin: 0 auto;
