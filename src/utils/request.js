@@ -69,7 +69,7 @@ axios.interceptors.response.use(response => {
   return Promise.resolve(error.response)
 })
 
-axios.defaults.baseURL = '/api'
+axios.defaults.baseURL = 'http://fitment.guoxiaoge.cn/api'
 // 设置默认请求头
 axios.defaults.headers = {
   'X-Requested-With': 'XMLHttpRequest'
