@@ -56,8 +56,9 @@ export default {
   }
   .news-article {
     font-size: 22px;
-    height: 150px;
+    height: 142px;
     color: #808080;
+    overflow: hidden;
   }
 </style>
 
