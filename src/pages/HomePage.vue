@@ -4,27 +4,27 @@
     <flexbox class="top-box">
       <flexbox>
         <flexbox-item>
-          <div class="info-left">
-            <cell-box is-link link="/example">
-              <h3 class="title">合作案例</h3><br>
-            </cell-box>
+          <div class="info-left" @click="gotoExample">
+            <!-- <cell-box is-link link="/example"> -->
+              <h3 class="title">合作案例</h3>
+            <!-- </cell-box> -->
             <h4 class="sub-title">已有24562位商家选择我们</h4>
           </div>
         </flexbox-item>
       </flexbox>
       <flexbox orient="vertical">
         <flexbox-item>
-          <div class="info-right">
-            <cell-box is-link link="/news">
+          <div class="info-right" @click="gotoNews">
+            <!-- <cell-box is-link link="/news"> -->
               <h3 class="title">新闻动态</h3>
-            </cell-box>
+            <!-- </cell-box> -->
           </div>
         </flexbox-item>
         <flexbox-item>
-          <div class="info-right">
-            <cell-box is-link link="/about">
+          <div class="info-right" @click="gotoAbout">
+            <!-- <cell-box is-link link="/about"> -->
               <h3 class="title">关于我们</h3>
-            </cell-box>
+            <!-- </cell-box> -->
           </div>
         </flexbox-item>
       </flexbox>
@@ -127,6 +127,15 @@ export default {
       if (res.data.code === 0) {
         this.examples = res.data.data.examples.list;
       }
+    },
+    gotoExample() {
+      location.href="#/example"
+    },
+    gotoNews() {
+      location.href="#/news"
+    },
+    gotoAbout() {
+      location.href="#/about"
     }
   },
   mounted() {
@@ -157,7 +166,7 @@ export default {
     margin-bottom: 20px;
   }
   .title {
-    /* padding-left: 20px; */
+    padding-left: 20px;
     font-size: 30px;
   }
   .sub-title {
