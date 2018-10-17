@@ -12,7 +12,7 @@
             <ul>
                 <li v-for="(item, index) in one" :key="index" class='partnerList'>
                     <flexbox align='center' justify='flex-around'>
-                        <img :src="item.avatar" class='pic'/>
+                        <img :src="$url + item.avatar" class='pic'/>
                         <flexbox-item>
                             <div>
                                 <div class='nickname'>{{item.name}}</div>
@@ -29,13 +29,33 @@
                 </li>
             </ul>
         </div>
-        <div v-if="index == 1">222 Container</div>
+        <div v-if="index == 1">
+            <ul>
+                <li v-for="(item, index) in two" :key="index" class='partnerList'>
+                    <flexbox align='center' justify='flex-around'>
+                        <img :src="$url + item.avatar" class='pic'/>
+                        <flexbox-item>
+                            <div>
+                                <div class='nickname'>{{item.name}}</div>
+                                <div class='level'>{{item.user_level}}</div>
+                            </div>      
+                        </flexbox-item>
+                        <flexbox-item>
+                            <div>
+                                <div class='nickname'>邀请{{item.inviteCount || 0 }}人</div>
+                                <div class='level'>邀请人: {{item.inviter}}</div>
+                            </div>
+                        </flexbox-item>
+                    </flexbox>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 <script>
 import topBar from '../components/Topbar'
 import { Flexbox, FlexboxItem, Tab, TabItem } from 'vux'
-import { vipSpread } from '../service/home'
+import { vipSpread, vipSecond } from '../service/home'
 
 export default {
     components: {
@@ -54,9 +74,14 @@ export default {
     },
     created: function() {
         vipSpread().then(res => {
-            console.log(res)
             if (res.data.code == 0) {
                 this.one = res.data.data.vipuser.list
+            }
+        })
+        vipSecond().then(res => {
+            if (res.data.code == 0) {
+                console.log(res)
+                this.two = res.data.data.vipusermarket.list
             }
         })
     },
@@ -71,7 +96,7 @@ export default {
 <style lang="less" scoped>
 .banner {
     height: 300px;
-    border: 1px solid;
+    width: 100%;
 }
 .tabs {
     margin-top: 20px;

@@ -2,9 +2,9 @@
   <div class="hello">
     <div class="shadow"> </div>
     <div class="information">
-      <top-bar text='' center='true'></top-bar>
+      <top-bar text='' center='true' id='topbar'></top-bar>
       <flexbox class='userbox'>
-        <flexbox-item :span="4">
+        <flexbox-item :span="5" id='picbox'>
           <img id="pic" :src="this.$url + userinfo.avatar" />
         </flexbox-item>
         <flexbox-item>
@@ -145,7 +145,7 @@ export default {
 .shadow {
   height: 370px;
   width: 100%;
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   background: url('https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg') center center;
   position: absolute;
   -webkit-filter:blur(3px);
@@ -156,21 +156,25 @@ export default {
 }
 .information {
   height: 370px;
-  border: 1px solid #ccc;
+  .topbar{
+    color: #fff;
+  }
   .userbox {
-    margin-left: 80px;
+    // margin-left: 80px;
     div {
       font-size: 34px;
       text-align: left;
     }
-    #pic {
-      width: 148px;
-      height: 148px;
-      border-radius: 50%;
-      border: 1px solid #B78D8F;
-      // position: absolute;
-      // left: 80px;
-    }
+    #picbox {
+      text-align: center;
+      #pic {
+        width: 148px;
+        height: 148px;
+        border-radius: 50%;
+        border: 1px solid #B78D8F;
+        // margin-left: 120px;
+      }
+    }   
     .nickname {
       color: #fff;
       // font-size: 34px;

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top-bar text='积分兑换' center='true'></top-bar>
+        <top-bar text='积分兑换' center='true' right='true' rtext='明细'></top-bar>
         <div class='intBox'>
             <h1 class='integral'>{{integral}}</h1>
             <p class='canInt'>今日可提现积分</p>
@@ -47,11 +47,13 @@ export default {
             params.append('money', this.point);
             params.append('user_id', this.userId);
             params.append('withdrawal_address', '微信');
-            withdrawPoint(params).then(res => {
-                console.log(res)             
+            withdrawPoint(params).then(res => {                       
                  if (res.data.code == 0) {
                     setTimeout(() => {
-                        this.$router.push({path: '/moneyDetail'})
+                        console.log(this.userId)    
+                        this.$router.push({ 
+                            name: '提现明细', 
+                        });
                     })
                 } else {
                     // this.$vux.toast.text('hello')

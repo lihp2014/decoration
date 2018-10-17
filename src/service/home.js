@@ -42,7 +42,7 @@ export const partnerBind = param => {
 
 // 积分明细
 export const moneyDetail = param => {
-  return req.get('/pointfor', param)
+  return req.get('/pointfor/' + param)
 }
 
 // 积分提现
@@ -53,4 +53,9 @@ export const withdrawPoint = param => {
 // VIP
 export const vipSpread = param => {
   return req.get('/vipuser', param)
+}
+
+// VIP第二市场
+export const vipSecond = param => {
+  return req.get('/vipusermarket', param)
 }

@@ -1,7 +1,7 @@
 <template>
   <div class="hello">
     <top-bar text='' left='true' money='true'></top-bar>
-    <img src="../assets/money.jpg">
+    <img class='pic' src="../assets/loan.png">
     <x-button type='primary' class='application' link='/loan'>立即申请</x-button>
   </div>
 </template>
@@ -34,7 +34,12 @@ export default {
     height: 100%;
     background: #B3DEE0 !important; 
 }
+.pic {
+  width: 100%;
+}
 .application {
-      padding: 20px;
-    }
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+}
 </style>
