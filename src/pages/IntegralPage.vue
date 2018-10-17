@@ -43,7 +43,7 @@ export default {
     methods: {
         withdraw: function() {
             let params = new FormData();
-            params.append('points', this.integral);
+            params.append('points', this.point);
             params.append('money', this.point);
             params.append('usepoints', this.integral - this.point);
             params.append('user_id', this.userId);

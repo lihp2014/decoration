@@ -3,11 +3,11 @@
         <top-bar text='关于我们' center='false'></top-bar>
         <div>
             <div class='pic'>
-                <img src="https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg">
+                <img :src="data.backgroundImage">
             </div>
             <div>
-                <h3 class="title">公司介绍</h3>
-                <p>赵刚说，自己与于海明相识20多年</p>
+                <h3 class="title">{{data.title}}</h3>
+                <p class="article">{{data.content}}</p>
             </div>
         </div>
     </div>
@@ -15,6 +15,7 @@
 <script>
 import topBar from '../components/Topbar'
 import { Flexbox, FlexboxItem } from 'vux'
+import { linkus } from '../service/home'
 
 export default {
     components: {
@@ -24,14 +25,28 @@ export default {
     },
     data() {
         return {
+            data: {}
         }
-    }
+    },
+    created() {
+        linkus().then(res => {
+            console.log(111, res);
+            if (res.data.code == 0) {
+                this.data = res.data.data.linkus.list[0];
+            }
+        })
+    },
 }
 </script>
 <style lang="less" scoped>
     .pic img {
         width: 750px;
         height: 240px;
+    }
+    .article {
+        padding: 20px;
+        text-align: left;
+        text-indent: 30px;
     }
 </style>
 

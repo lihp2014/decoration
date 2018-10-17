@@ -59,3 +59,8 @@ export const vipSpread = param => {
 export const vipSecond = param => {
   return req.get('/vipusermarket', param)
 }
+
+// 关于我们
+export const linkus = param => {
+  return req.get('/linkus', param);
+}

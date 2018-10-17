@@ -292,3 +292,7 @@
 'money'=>$data['money'],              提现金额
 'user_id' => $data['user_id'],        提现用户id
 'withdrawal_address' => $data['withdrawal_address'],   提现的地址 至银行卡还是微信
+
+
+//关于我们  
+接口地址  http://fitment.guoxiaoge.cn/api/linkus
