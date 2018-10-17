@@ -45,6 +45,7 @@ export default {
             let params = new FormData();
             params.append('points', this.integral);
             params.append('money', this.point);
+            params.append('usepoints', this.integral - this.point);
             params.append('user_id', this.userId);
             params.append('withdrawal_address', '微信');
             withdrawPoint(params).then(res => {                       
