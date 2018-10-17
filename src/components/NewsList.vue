@@ -56,9 +56,13 @@ export default {
   }
   .news-article {
     font-size: 22px;
-    height: 142px;
+    // height: 142px;
     color: #808080;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 </style>
 

@@ -30,11 +30,11 @@
       </flexbox>
     </flexbox>
     <flexbox class="example-box" orient="vertical">
-      <flexbox :gutter="100">
+      <flexbox :gutter="80">
         <flexbox-item :span="6">
           <h2 class="colum-title">装修案例</h2>
         </flexbox-item>
-        <flexbox-item :span="2">
+        <flexbox-item :span="3">
             <cell-box is-link link="/example">
               <a class="title-more">更多&gt;&gt;</a>
             </cell-box>
@@ -43,11 +43,11 @@
       <example-list :list="examples"></example-list>
     </flexbox>
     <flexbox class="news-box" orient="vertical">
-      <flexbox :gutter="100">
+      <flexbox :gutter="80">
         <flexbox-item :span="6">
           <h2 class="colum-title">新闻动态</h2>
         </flexbox-item>
-        <flexbox-item :span="2">
+        <flexbox-item :span="3">
             <cell-box is-link link="/news">
               <a class="title-more">更多&gt;&gt;</a>
             </cell-box>
@@ -56,11 +56,11 @@
       <news-list :list="news"></news-list>
     </flexbox>
     <flexbox class="map-box" orient="vertical">
-      <flexbox :gutter="100">
+      <flexbox :gutter="80">
         <flexbox-item :span="6">
           <h2 class="colum-title">在线地图</h2>
         </flexbox-item>
-        <flexbox-item :span="2">
+        <flexbox-item :span="3">
           <a class="title-more">到那里去</a>
         </flexbox-item>
       </flexbox>
@@ -119,13 +119,13 @@ export default {
     async getNewsData () {
       const res = await getNews();
       if (res.data.code === 0) {
-        this.news = res.data.data.news.list;
+        this.news = res.data.data.news.list.slice(0,3);
       }
     },
     async getExampleData () {
       const res = await getExamples();
       if (res.data.code === 0) {
-        this.examples = res.data.data.examples.list;
+        this.examples = res.data.data.examples.list.slice(0,4);
       }
     },
     gotoExample() {
@@ -162,8 +162,10 @@ export default {
   .top-box {
     width: 100%;
     background-color: #fff;
-    padding: 40px 0 20px 20px;
+    /* padding: 40px 0 20px 20px; */
     margin-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
   .title {
     padding-left: 20px;
@@ -182,10 +184,12 @@ export default {
   .info-left {
     /* margin-right: 20px; */
     height: 240px;
+    margin: 0 auto;
   }
   .info-right {
     height: 110px;
-    margin-right: 0;
+    /* margin-right: 0; */
+    margin: 0 auto;
   }
   .example-box, .news-box, .map-box {
     width: 95%;
