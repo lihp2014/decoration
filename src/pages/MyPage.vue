@@ -5,7 +5,7 @@
       <top-bar text='' center='true' id='topbar'></top-bar>
       <flexbox class='userbox'>
         <flexbox-item :span="5" id='picbox'>
-          <img id="pic" :src="this.$url + userinfo.avatar" />
+          <img id="pic" :src="userinfo.avatar" />
         </flexbox-item>
         <flexbox-item>
           <div class='nickname'>{{userinfo.nickname}}</div>
