@@ -3,7 +3,7 @@
         <top-bar :text='title' left='true'></top-bar>
         <div v-if="success" class='result'>
             <icon type="success" is-msg class='icon'></icon>
-            <p>提交成功</p>
+            <p>{{status ? status : '提交成功'}}</p>
             <p class='notice'>预计1至3个月回复</p>
         </div>
         <div v-else class='result'>
@@ -25,14 +25,17 @@ export default {
     data() {
         return {
             title: '',
-            success: true
+            success: true,
+            status: ''
         }
     },
     mounted () {
         let title = this.$route.query.title;
         let success = this.$route.query.success;
+        let status = this.$route.query.status;
         this.title = title;
         this.success = success;
+        this.status = status;
     }
 }
 </script>
