@@ -42,6 +42,8 @@ export default {
   }
   .news-item {
     font-size: 26px;
+    width: 95%;
+    margin: 0 auto;
     margin-bottom: 20px;
   }
   .news-item img {
