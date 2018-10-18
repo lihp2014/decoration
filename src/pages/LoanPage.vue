@@ -71,7 +71,13 @@ export default {
                 console.log(res)
                 if (res.data.code == 0) {
                     setTimeout(() => {
-                        this.$router.push({path: '/result'});
+                        this.$router.push({
+                            path: '/result',
+                            query: {
+                                title: '贷款申请',
+                                success: res.data.code === 0 ? true : false
+                            }
+                        });
                     });
                 }
             })
