@@ -15,6 +15,7 @@ import AboutPage from '@/pages/AboutPage'
 import NewsPage from '@/pages/NewsPage'
 import NewsDetail from '@/pages/NewsDetail'
 import ExampleDetail from '@/pages/ExampleDetail'
+import Map from '@/pages/map'
 
 Vue.use(Router)
 
@@ -98,6 +99,11 @@ export default new Router({
       path: '/exampleDetail/:id',
       name: '装修案例详情',
       component: ExampleDetail
+    },
+    {
+      path: '/map',
+      name: '在线地图',
+      component: Map
     }
   ]
 })

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { Tabbar, TabbarItem, XHeader, Flexbox, PopupPicker, XInput, XButton, AlertModule } from 'vux'
+import { Tabbar, TabbarItem, XHeader, Flexbox, PopupPicker, XInput, XButton } from 'vux'
 import bottomBar from '../components/BottomBar'
 import { postMsg } from '../service/home'
 
@@ -103,28 +103,15 @@ export default {
           params.append('room', this.room);
           params.append('phone', this.phone);
           postMsg(params).then(res => {
-              if (res.data.code === 0) {
-                  this.showModuleAuto();
-              }
+            this.$router.push({
+                path: '/result',
+                query: {
+                    title: '留言板',
+                    success: res.data.code === 0 ? true : false
+                }
+            });
           })
       },
-      showModule () {
-        AlertModule.show({
-            content: '提交成功',
-            onShow () {
-                console.log('Module: I\'m showing')
-            },
-            onHide () {
-                // location.reload();
-            }
-        })
-      },
-    showModuleAuto () {
-      this.showModule()
-      setTimeout(() => {
-        AlertModule.hide()
-      }, 2000)
-    },
   }
 }
 </script>

@@ -45,8 +45,9 @@ export default {
     background-color: #fff;
     border-radius: 10px;
     font-size: 24px;
-    margin-left: 5px;
+    margin: 0 auto;
     position: relative;
+    margin-bottom: 20px;
   }
   .inner-item img {
     width: 100%;

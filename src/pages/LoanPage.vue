@@ -36,7 +36,7 @@
 <script>
 import topBar from '../components/Topbar'
 import { XInput, XButton, Box } from 'vux'
-import { loanApply } from '../service/home'
+import { loanApply, getPersonInfo } from '../service/home'
 
 export default {
     name: 'LoanPage',
@@ -53,6 +53,7 @@ export default {
             money: '',
             weixin: '',
             haveHouse: 0,
+            user_id: 1
         }
     },
     methods: {
@@ -67,15 +68,39 @@ export default {
             params.append('money', this.money);
             params.append('weixin', this.weixin);
             params.append('ishavehouse', this.haveHouse);
+            params.append('user_id', this.user_id);
             loanApply(params).then(res => {
                 console.log(res)
                 if (res.data.code == 0) {
                     setTimeout(() => {
-                        this.$router.push({path: '/result'});
+                        this.$router.push({
+                            path: '/result',
+                            query: {
+                                title: '贷款申请',
+                                success: res.data.code === 0 ? true : false
+                            }
+                        });
+                    });
+                } else if (res.data.code == 1) {
+                    this.$router.push({
+                        path: '/result',
+                        query: {
+                            title: '贷款申请',
+                            success: true,
+                            status: res.data.msg.loanapply.list[0].check_status
+                        }
                     });
                 }
             })
         }
+    },
+    created () {
+        getPersonInfo().then(res => {
+            if (res.data.code == 0) {
+                // this.integral = res.data.data.personinfo.list[0].presentPoints
+                this.userId = res.data.data.personinfo.list[0].user_id
+            }
+        })
     }
 }
 </script>
