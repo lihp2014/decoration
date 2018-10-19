@@ -9,6 +9,14 @@ Vue.config.productionTip = false
 Vue.prototype.$http= axios
 Vue.prototype.$url= 'http://fitment.guoxiaoge.cn/'
 
+// window.onresize = setHtmlFontSize;
+// function setHtmlFontSize(){
+//     const htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+//     const htmlDom = document.getElementsByTagName('html')[0];
+//     htmlDom.style.fontSize = htmlWidth / 10 + 'px';
+// };
+// setHtmlFontSize();
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

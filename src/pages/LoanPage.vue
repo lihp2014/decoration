@@ -108,7 +108,9 @@ export default {
         }
     .inputbox {
         position: relative;
-        padding: 30px 0;
+        /* padding: 30px 0; */
+        font-size: 26px;
+        height: 90px;
         border: 1px solid #CACACA;
         margin-bottom: 45px;
         border-radius: 20px;
@@ -118,6 +120,7 @@ export default {
     }
     .btnstyle {
         padding: 5px 50px;
+        font-size: 20px;
     }
     .left {
         margin-right: 150px;

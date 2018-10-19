@@ -11,7 +11,7 @@ module.exports = {
       viewportHeight: 1334,
       unitPrecision: 5,
       viewportUnit: "vmin",
-      selectorBlackList: ['vux-'],
+      selectorBlackList: ['vux-', '.weui-', 'scroller-'],
       minPixelValue: 1,
       mediaQuery: false
     },
