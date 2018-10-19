@@ -66,7 +66,7 @@
       </flexbox>
       <flexbox>
         <flexbox-item>
-          <div id="container" style="width: 100%; height: 120px;"></div>
+          <div class="map-pic" @click="gotoMap"></div>
         </flexbox-item>
       </flexbox>
     </flexbox>
@@ -136,16 +136,12 @@ export default {
     },
     gotoAbout() {
       location.href="#/about"
+    },
+    gotoMap() {
+      location.href="#/map"
     }
   },
   mounted() {
-    TMap('RYEBZ-NH7LD-YQ64O-P7Q4F-6VRCQ-IIFTY').then(qq => {
-      var map = new qq.maps.Map(document.getElementById("container"), {
-          // 地图的中心地理坐标。
-          center: new qq.maps.LatLng(39.916527, 116.397128),
-          zoom: 10
-      });
-    });
     this.getBannerData();
     this.getNewsData();
     this.getExampleData();
@@ -206,5 +202,11 @@ export default {
   .title-more {
     font-size: 24px;
     color: #9A9A9A;
+  }
+  .map-pic {
+    width: 100%;
+    height: 300px;
+    background: url(../assets/map.png) no-repeat;
+    background-size: contain;
   }
 </style>

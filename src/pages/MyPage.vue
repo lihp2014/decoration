@@ -37,6 +37,7 @@
     <bottom-Bar v-bind={index}></bottom-Bar>
     <x-dialog v-model="showcode"  hide-on-blur :dialog-style="{'max-width': '100%', width: '80%', height: '50%', 'background-color': 'transparent', margin: 'auto'}" >
       <div class="dialog">
+        <x-icon class="close" @click.native="spread" type="ios-close-outline" size="30"></x-icon>
         <p class='codetitle'>推广二维码</p>
         <qrcode id='qrcode' value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode>
       </div>
@@ -131,6 +132,12 @@ export default {
 .dialog {
   background: #fff;
   padding-bottom: 30px;
+  position: relative;
+  .close {
+    background: #45CC84;
+    position: absolute;
+    right: 0;
+  }
   .codetitle {
     color: #464646;
     font-size: 36px;
