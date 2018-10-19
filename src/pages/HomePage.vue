@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <top-bar text='装修' center='false'></top-bar>
     <swiper :list="list" auto style="width:100%;margin:0 auto;" height="180px" dots-class="custom-bottom" dots-position="center"></swiper>
     <flexbox class="top-box">
       <flexbox>
@@ -68,7 +67,6 @@
 <script>
 import { Swiper, Flexbox, FlexboxItem, CellBox } from 'vux'
 import bottomBar from '../components/BottomBar'
-import topBar from '../components/Topbar'
 import exampleList from '../components/ExampleList'
 import newsList from '../components/NewsList'
 import { TMap } from '../utils/TMap'
@@ -90,7 +88,6 @@ export default {
     FlexboxItem,
     CellBox,
     bottomBar,
-    topBar,
     exampleList,
     newsList
   },
@@ -101,6 +98,8 @@ export default {
       news: [],
       examples: []
     }
+  },
+  created() {
   },
   methods: {
     async getBannerData () {
@@ -138,6 +137,7 @@ export default {
     this.getBannerData();
     this.getNewsData();
     this.getExampleData();
+    document.title = '装修'
   }
 }
 </script>

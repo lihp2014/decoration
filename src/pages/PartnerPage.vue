@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top-bar left='true' text='合伙人绑定'></top-bar>
+        <top-bar top='true' text='合伙人绑定'></top-bar>
         <div class='banner'>
             <img class='banner' src='../assets/partner.jpg'/>
         </div>
@@ -121,6 +121,7 @@ export default {
     position: absolute;
     bottom: 20px;
     border-radius:99px;
+    font-size: 40px;
 }
 </style>
 

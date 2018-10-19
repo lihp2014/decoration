@@ -1,4 +1,4 @@
-<template class='topbar'>
+<template>
     <!-- <div :class="{ 'money': money === true, 'box': money === false }">
         <flexbox class="topbar">
             <flexbox-item class='arrow' @click.native="goBack" span='1'><span> &lt;</span></flexbox-item>
@@ -7,7 +7,7 @@
             <flexbox-item  span='48' v-if="right" @click.native="goDetail">明细</flexbox-item>
         </flexbox>
     </div>   -->
-    <div class="topbar"></div>
+    <div :class="top ? 'topAbsolute' : 'topbar'"></div>
 </template>
 <script>
 import { Flexbox, FlexboxItem } from 'vux'
@@ -16,7 +16,7 @@ export default {
         Flexbox,
         FlexboxItem,
     },
-    props: ['text','left','center', 'money', 'right'],
+    props: ['text','left','center', 'money', 'right', 'top'],
     created() {
          console.log('newVal', this.text);
          document.title = this.text
@@ -34,9 +34,14 @@ export default {
 <style scoped>
     .topbar {
         /* position: fixed; */
-        top: 0;
-        /* height: 100px; */
+        /* top: 60px; */
+        height: 60px;
         width: 100%;
+        background: transparent;
+    }
+    .topAbsolute {
+        position: fixed;
+        top: 0;
     }
     .arrow {
         padding-left: 25px;

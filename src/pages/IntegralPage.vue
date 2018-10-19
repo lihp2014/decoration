@@ -67,7 +67,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .intBox {
-    margin: 70px 0;
+    margin-bottom: 70px;
     .integral {
         font-size: 88px;
         color: #5c5c5c;

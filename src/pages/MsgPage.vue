@@ -1,6 +1,5 @@
 <template>
   <div>
-    <top-bar text='留言板'></top-bar>
     <div class="content">
         <div class="image-box">
             <img src="../assets/msgPic.jpg">
@@ -28,7 +27,6 @@
 <script>
 import { Tabbar, TabbarItem, XHeader, Flexbox, PopupPicker, XInput, XButton } from 'vux'
 import bottomBar from '../components/BottomBar'
-import topBar from '../components/Topbar'
 import { postMsg } from '../service/home'
 
 export default {
@@ -38,7 +36,6 @@ export default {
     TabbarItem,
     XHeader,
     bottomBar,
-    topBar,
     Flexbox,
     PopupPicker,
     XInput,
@@ -95,6 +92,9 @@ export default {
         area: '',
         phone: ''
     }
+  },
+  created() {
+      document.title = '留言板'
   },
   methods: {
       submit () {

@@ -3,7 +3,6 @@
     <top-bar text='个人中心'></top-bar>
     <div class="shadow"> </div>
     <div class="information">
-      <top-bar text='' center='true' id='topbar'></top-bar>
       <flexbox class='userbox'>
         <flexbox-item :span="5" id='picbox'>
           <img id="pic" :src="userinfo.avatar" />
@@ -114,8 +113,7 @@ export default {
 
 <style lang="less">
 .jifen {
-  padding-bottom: 30px;
-  padding-top: 15px;
+  padding-bottom: 15px;
   .grey {
   color: #787878;
   font-size: 22px;
@@ -146,9 +144,10 @@ export default {
   }
 }
 .btn {
-  padding: 25px 0;
+  padding: 25px 10px;
   border-radius: 20px;
   background: #fff;
+  font-size: 40px;
 }
 .shadow {
   height: 370px;
@@ -163,12 +162,12 @@ export default {
   z-index: -1;
 }
 .information {
-  height: 370px;
+  height: 330px;
   .topbar{
     color: #fff;
   }
   .userbox {
-    // margin-left: 80px;
+    margin-left: 80px;
     div {
       font-size: 34px;
       text-align: left;

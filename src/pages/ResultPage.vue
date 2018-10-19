@@ -1,6 +1,6 @@
 <template>
     <div >
-        <top-bar :text='title' left='true'></top-bar>
+        <top-bar text='贷款申请' left='true'></top-bar>
         <div v-if="code == -1" class='result'>
             <icon type="cancel" is-msg class='icon'></icon>
             <p class="msg">提交失败</p>

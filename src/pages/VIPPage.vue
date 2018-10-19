@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top-bar text='vip推广' left='true'></top-bar>
+        <top-bar text='vip推广' top='true'></top-bar>
         <div class='banner'>
             <img class='banner' src='../assets/vip.jpg'/>
         </div>
