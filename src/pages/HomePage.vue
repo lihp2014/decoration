@@ -30,7 +30,7 @@
       </flexbox>
     </flexbox>
     <flexbox class="example-box" orient="vertical">
-      <flexbox :gutter="90">
+      <flexbox :gutter="80">
         <flexbox-item :span="6">
           <h2 class="colum-title">装修案例</h2>
         </flexbox-item>
@@ -43,7 +43,7 @@
       <example-list :list="examples"></example-list>
     </flexbox>
     <flexbox class="news-box" orient="vertical">
-      <flexbox :gutter="90">
+      <flexbox :gutter="80">
         <flexbox-item :span="6">
           <h2 class="colum-title">新闻动态</h2>
         </flexbox-item>
@@ -56,7 +56,7 @@
       <news-list :list="news"></news-list>
     </flexbox>
     <flexbox class="map-box" orient="vertical">
-      <flexbox :gutter="90">
+      <flexbox :gutter="80">
         <flexbox-item :span="6">
           <h2 class="colum-title">在线地图</h2>
         </flexbox-item>
@@ -202,11 +202,12 @@ export default {
   .title-more {
     font-size: 24px;
     color: #9A9A9A;
+    padding-left: 60px;
   }
   .map-pic {
     width: 100%;
     height: 300px;
     background: url(../assets/map.png) no-repeat;
-    background-size: contain;
+    background-size: cover;
   }
 </style>
