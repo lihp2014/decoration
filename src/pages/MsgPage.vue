@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header :left-options="{backText: ''}">留言板</x-header>
+    <top-bar text='留言板'></top-bar>
     <div class="content">
         <div class="image-box">
             <img src="../assets/msgPic.jpg">
@@ -28,6 +28,7 @@
 <script>
 import { Tabbar, TabbarItem, XHeader, Flexbox, PopupPicker, XInput, XButton } from 'vux'
 import bottomBar from '../components/BottomBar'
+import topBar from '../components/Topbar'
 import { postMsg } from '../service/home'
 
 export default {
@@ -37,6 +38,7 @@ export default {
     TabbarItem,
     XHeader,
     bottomBar,
+    topBar,
     Flexbox,
     PopupPicker,
     XInput,
@@ -138,8 +140,9 @@ a {
     border: 1px solid #ccc;
     border-radius: 30px;
     box-shadow: 2px 2px 3px #aaaaaa;
-    padding: 30px 40px;
+    padding: 40px;
     margin: 30px auto;
+    margin-bottom: 40px;
 }
 .image-box img {
     width: 600px;
@@ -159,6 +162,8 @@ a {
 .btn {
     background-color: #26CC8C;
     border-radius: 20px;
-    padding: 25px 0; 
+    padding: 25px 0;
+    width: 100%;
+    font-size: 30px;
 }
 </style>

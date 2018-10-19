@@ -41,5 +41,6 @@ export default {
   padding: 20px;
   position: absolute;
   bottom: 0;
+  font-size: 40px;
 }
 </style>

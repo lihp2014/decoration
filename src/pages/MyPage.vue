@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <top-bar text='个人中心'></top-bar>
     <div class="shadow"> </div>
     <div class="information">
       <top-bar text='' center='true' id='topbar'></top-bar>

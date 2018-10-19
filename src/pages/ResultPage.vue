@@ -1,14 +1,14 @@
 <template>
     <div >
-        <top-bar text='贷款申请' left='true'></top-bar>
+        <top-bar :text='title' left='true'></top-bar>
         <div v-if="code == -1" class='result'>
             <icon type="cancel" is-msg class='icon'></icon>
-            <p>提交失败</p>
+            <p class="msg">提交失败</p>
             <p class='notice'>失败原因:网络错误或其他原因</p>
         </div>
         <div v-else class='result'>
             <icon type="success" is-msg class='icon'></icon>
-            <p>{{status ? status : '提交成功'}}</p>
+            <p class="msg">{{status ? status : '提交成功'}}</p>
             <p class='notice'>预计1至3个月回复</p>
         </div>        
     </div>
@@ -43,6 +43,9 @@ export default {
     .result {
         margin: 150px;
     }
+    .msg {
+        margin-top: 40px;
+    }
     .icon {
         // position:absolute;
         // margin:auto;
@@ -53,7 +56,7 @@ export default {
     }
     .notice {
         color: #f00 !important;
-        font-size: 14px;
+        font-size: 28px;
     }
 </style>
 

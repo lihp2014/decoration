@@ -35,7 +35,7 @@ export default {
     .topbar {
         /* position: fixed; */
         top: 0;
-        height: 100px;
+        /* height: 100px; */
         width: 100%;
     }
     .arrow {

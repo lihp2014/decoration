@@ -1,13 +1,12 @@
 <template>
   <div class="home">
+    <top-bar text='装修' center='false'></top-bar>
     <swiper :list="list" auto style="width:100%;margin:0 auto;" height="180px" dots-class="custom-bottom" dots-position="center"></swiper>
     <flexbox class="top-box">
       <flexbox>
         <flexbox-item>
           <div class="info-left" @click="gotoExample">
-            <!-- <cell-box is-link link="/example"> -->
               <h3 class="title">合作案例</h3>
-            <!-- </cell-box> -->
             <h4 class="sub-title">已有24562位商家选择我们</h4>
           </div>
         </flexbox-item>
@@ -15,16 +14,12 @@
       <flexbox orient="vertical">
         <flexbox-item>
           <div class="info-right" @click="gotoNews">
-            <!-- <cell-box is-link link="/news"> -->
               <h3 class="title">新闻动态</h3>
-            <!-- </cell-box> -->
           </div>
         </flexbox-item>
         <flexbox-item>
           <div class="info-right" @click="gotoAbout">
-            <!-- <cell-box is-link link="/about"> -->
               <h3 class="title">关于我们</h3>
-            <!-- </cell-box> -->
           </div>
         </flexbox-item>
       </flexbox>
@@ -35,9 +30,7 @@
           <h2 class="colum-title">装修案例</h2>
         </flexbox-item>
         <flexbox-item :span="3">
-            <cell-box is-link link="/example">
-              <a class="title-more">更多&gt;&gt;</a>
-            </cell-box>
+              <a class="title-more" @click="gotoExample">更多&gt;</a>
         </flexbox-item>
       </flexbox>
       <example-list :list="examples"></example-list>
@@ -48,9 +41,7 @@
           <h2 class="colum-title">新闻动态</h2>
         </flexbox-item>
         <flexbox-item :span="3">
-            <cell-box is-link link="/news">
-              <a class="title-more">更多&gt;&gt;</a>
-            </cell-box>
+              <a class="title-more" @click="gotoNews">更多&gt;</a>
         </flexbox-item>
       </flexbox>
       <news-list :list="news"></news-list>
@@ -77,6 +68,7 @@
 <script>
 import { Swiper, Flexbox, FlexboxItem, CellBox } from 'vux'
 import bottomBar from '../components/BottomBar'
+import topBar from '../components/Topbar'
 import exampleList from '../components/ExampleList'
 import newsList from '../components/NewsList'
 import { TMap } from '../utils/TMap'
@@ -98,6 +90,7 @@ export default {
     FlexboxItem,
     CellBox,
     bottomBar,
+    topBar,
     exampleList,
     newsList
   },

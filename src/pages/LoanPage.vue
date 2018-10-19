@@ -1,6 +1,6 @@
 <template>
     <div>
-        <top-bar text='贷款申请' left='true'></top-bar>
+        <top-bar text='贷款申请'></top-bar>
         <div class='box'>
             <span class='label'>姓&nbsp;&nbsp;名</span>
             <input class='inputbox' type="text" placeholder="请输入您的真实姓名" v-model="name" />
@@ -68,7 +68,7 @@ export default {
             params.append('money', this.money);
             params.append('weixin', this.weixin);
             params.append('ishavehouse', this.haveHouse);
-            params.append('user_id', this.user_id);
+            // params.append('user_id', this.user_id);
             loanApply(params).then(res => {
                 console.log(res)
                 if (res.data) {
@@ -100,11 +100,14 @@ export default {
     .havehouse {
         text-align: center;
         color: #373737;
+        font-size: 32px;
     }
     .submit {
         margin-top: 60px;
         padding: 20px 0; 
         border-radius: 20px;
+        width: 100%;
+        font-size: 30px;
     }
     .box {
         text-align: center;
@@ -137,7 +140,7 @@ export default {
     }
     .btnstyle {
         padding: 5px 50px;
-        font-size: 20px;
+        font-size: 30px;
     }
     .left {
         margin-right: 150px;

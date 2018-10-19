@@ -4,6 +4,7 @@
         <div class='intBox'>
             <h1 class='integral'>{{integral}}</h1>
             <p class='canInt'>今日可提现积分</p>
+            <a class='detail' href='#/moneyDetail'>明细</a>
         </div>     
         <div class='notices'>每次兑换金额不得低于100元, 余额低于100时不可提现</div>
         <x-input class='inputbox' placeholder='输入提现金额' title='积分提现' v-model="point"></x-input>
@@ -76,6 +77,10 @@ export default {
         font-size: 24px;
     }
 }
+.detail {
+    color: #26CC8C;
+    text-decoration: none;
+}
 .notices {
     height: 80px;
     line-height: 80px;
@@ -90,6 +95,7 @@ export default {
 }
 .getmoney {
     padding: 25px 0;
+    font-size: 30px;
 }
 </style>
 
