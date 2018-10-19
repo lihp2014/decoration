@@ -1,16 +1,16 @@
 <template>
     <div >
         <top-bar :text='title' left='true'></top-bar>
-        <div v-if="success" class='result'>
-            <icon type="success" is-msg class='icon'></icon>
-            <p>{{status ? status : '提交成功'}}</p>
-            <p class='notice'>预计1至3个月回复</p>
-        </div>
-        <div v-else class='result'>
+        <div v-if="code == -1" class='result'>
             <icon type="cancel" is-msg class='icon'></icon>
             <p>提交失败</p>
             <p class='notice'>失败原因:网络错误或其他原因</p>
         </div>
+        <div v-else class='result'>
+            <icon type="success" is-msg class='icon'></icon>
+            <p>{{status ? status : '提交成功'}}</p>
+            <p class='notice'>预计1至3个月回复</p>
+        </div>        
     </div>
 </template>
 <script>
@@ -25,16 +25,16 @@ export default {
     data() {
         return {
             title: '',
-            success: true,
+            code: 0,
             status: ''
         }
     },
     mounted () {
         let title = this.$route.query.title;
-        let success = this.$route.query.success;
+        let code = this.$route.query.code;
         let status = this.$route.query.status;
         this.title = title;
-        this.success = success;
+        this.code = code;
         this.status = status;
     }
 }

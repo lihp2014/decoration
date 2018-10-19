@@ -71,24 +71,16 @@ export default {
             params.append('user_id', this.user_id);
             loanApply(params).then(res => {
                 console.log(res)
-                if (res.data.code == 0) {
+                if (res.data) {
                     setTimeout(() => {
                         this.$router.push({
                             path: '/result',
                             query: {
                                 title: '贷款申请',
-                                success: res.data.code === 0 ? true : false
+                                code: res.data.code,
+                                status: res.data.msg.loanapply.check_status
                             }
                         });
-                    });
-                } else if (res.data.code == 1) {
-                    this.$router.push({
-                        path: '/result',
-                        query: {
-                            title: '贷款申请',
-                            success: true,
-                            status: res.data.msg.loanapply.list[0].check_status
-                        }
                     });
                 }
             })
