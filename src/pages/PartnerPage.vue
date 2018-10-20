@@ -1,7 +1,7 @@
 <template>
     <div>
         <top-bar top='true' text='合伙人绑定'></top-bar>
-        <div>
+        <div class='banner'>
             <img class='banner' src='../assets/partner.jpg'/>
         </div>
         <line-itme></line-itme>
