@@ -94,7 +94,8 @@ export default {
 .banner {
     height: 300px;
     line-height: 300px;
-    border: 1px solid;
+    width: 100%;
+    /* border: 1px solid; */
     font-size: 36px;
     text-align: center;
 }
