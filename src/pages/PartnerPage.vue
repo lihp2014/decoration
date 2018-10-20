@@ -1,7 +1,7 @@
 <template>
     <div>
         <top-bar top='true' text='合伙人绑定'></top-bar>
-        <div class='banner'>
+        <div>
             <img class='banner' src='../assets/partner.jpg'/>
         </div>
         <line-itme></line-itme>
@@ -94,7 +94,8 @@ export default {
 .banner {
     height: 300px;
     line-height: 300px;
-    border: 1px solid;
+    width: 100%;
+    /* border: 1px solid; */
     font-size: 36px;
     text-align: center;
 }
