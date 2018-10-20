@@ -39,7 +39,8 @@
       <div class="dialog">
         <x-icon class="close" @click.native="spread" type="ios-close-outline" size="30"></x-icon>
         <p class='codetitle'>推广二维码</p>
-        <qrcode id='qrcode' value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode>
+        <!-- <qrcode id='qrcode' value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode> -->
+        <img id='qrcode' :src='qrcodeImg' />
       </div>
       <box gap="20px 50px">
         <x-button class='btn' @click.native="spread('download')">下载二维码</x-button>
@@ -51,7 +52,7 @@
 <script>
 import { Flexbox, FlexboxItem, CellBox, Group, XDialog, XButton, Box, Qrcode } from 'vux'
 import bottomBar from '../components/BottomBar'
-import { getPersonInfo } from '../service/home'
+import { getPersonInfo, qrcode } from '../service/home'
 import topBar from '../components/Topbar'
 
 export default {
@@ -79,6 +80,7 @@ export default {
         totalPoints: 1555,
         user_id: 1,
         user_level: "普通會員",
+        qrcodeImg: ''
       },
     }
   },
@@ -89,18 +91,24 @@ export default {
           this.userinfo = res.data.data.personinfo.list[0]
         }
     })
+    qrcode().then(res => {
+      if (res.data.code == 0) {
+        this.qrcodeImg = res.data.data.personinfo
+      }
+    })
   },
   methods: {
     spread: function(type) {
       this.showcode = !this.showcode
 
       if (type == 'download') {
+
         //找到canvas标签
-        let myCanvas = document.querySelector('#qrcode').getElementsByTagName('canvas');
+        let myCanvas = document.querySelector('#qrcode');
         //创建一个a标签节点
         let a = document.createElement("a")
-        //设置a标签的href属性（将canvas变成png图片）
-        a.href = myCanvas[0].toDataURL('image/png').replace('image/png', 'image/octet-stream')
+        // //设置a标签的href属性（将canvas变成png图片）
+        a.href = myCanvas.replace('image/png', 'image/octet-stream')
         //设置下载文件的名字
         a.download = "推广二维码"
         //点击

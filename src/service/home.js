@@ -64,3 +64,8 @@ export const vipSecond = param => {
 export const linkus = param => {
   return req.get('/linkus', param);
 }
+
+// 二维码
+export const qrcode = param => {
+  return req.get('/qrcode', param);
+}
