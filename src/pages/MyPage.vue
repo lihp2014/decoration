@@ -4,10 +4,10 @@
     <div class="shadow"> </div>
     <div class="information">
       <flexbox class='userbox'>
-        <flexbox-item :span="5" id='picbox'>
+        <flexbox-item :span="6" id='picbox'>
           <img id="pic" :src="userinfo.avatar" />
         </flexbox-item>
-        <flexbox-item>
+        <flexbox-item :span="5">
           <div class='nickname'>{{userinfo.nickname}}</div>
           <div class='nickname'>ID: {{userinfo.user_id}}</div>
         </flexbox-item>
@@ -40,10 +40,11 @@
         <x-icon class="close" @click.native="spread" type="ios-close-outline" size="30"></x-icon>
         <p class='codetitle'>推广二维码</p>
         <!-- <qrcode id='qrcode' value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode> -->
-        <img id='qrcode' :src='qrcodeImg' />
+        <img :src='qrcodeImg' />
       </div>
       <box gap="20px 50px">
-        <x-button class='btn' @click.native="spread('download')">下载二维码</x-button>
+        <!-- <x-button class='btn' @click.native="spread('download')">下载二维码</x-button> -->
+        <a :href='qrcodeImg' download="qrcode" class="dn-button">下载二维码</a>
       </box>
     </x-dialog>
   </div>
@@ -80,8 +81,8 @@ export default {
         totalPoints: 1555,
         user_id: 1,
         user_level: "普通會員",
-        qrcodeImg: ''
       },
+      qrcodeImg: ''
     }
   },
   created: function() {
@@ -101,19 +102,20 @@ export default {
     spread: function(type) {
       this.showcode = !this.showcode
 
-      if (type == 'download') {
+      // if (type == 'download') {
 
-        //找到canvas标签
-        let myCanvas = document.querySelector('#qrcode');
-        //创建一个a标签节点
-        let a = document.createElement("a")
-        // //设置a标签的href属性（将canvas变成png图片）
-        a.href = myCanvas.replace('image/png', 'image/octet-stream')
-        //设置下载文件的名字
-        a.download = "推广二维码"
-        //点击
-        a.click()
-      }
+      //   //找到canvas标签
+      //   let myCanvas = document.querySelector('#qrcode');
+      //   //创建一个a标签节点
+      //   let a = document.createElement("a")
+      //   // //设置a标签的href属性（将canvas变成png图片）
+      //   a.href = myCanvas.replace('image/png', 'image/octet-stream')
+      //   //设置下载文件的名字
+      //   a.download = "推广二维码"
+      //   //点击
+      //   a.click()
+      // }
+      let img = document.querySelector('qrcode');
     }
   }
 }
@@ -175,7 +177,7 @@ export default {
     color: #fff;
   }
   .userbox {
-    margin-left: 80px;
+    // margin-left: 80px;
     div {
       font-size: 34px;
       text-align: left;
@@ -219,5 +221,17 @@ export default {
 }
 .weui-cells:after {
   border-bottom: none !important;
+}
+.dn-button {
+  display: block;
+  background: #fff;
+  text-decoration: none;
+  width: 350px;
+  margin: 0 auto;
+  border-radius: 30px;
+  height: 90px;
+  line-height: 90px;
+  color: #464646;
+  font-size: 36px;
 }
 </style>

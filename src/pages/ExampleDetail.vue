@@ -62,7 +62,7 @@ export default {
   }
   .info {
       position: absolute;
-      bottom: 18px;
+      bottom: 0;
       background: rgba(0,0,0,0.58);
       color: #fff;
       width: 100%;

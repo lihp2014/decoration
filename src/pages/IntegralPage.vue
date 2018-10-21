@@ -50,16 +50,20 @@ export default {
             params.append('user_id', this.userId);
             params.append('withdrawal_address', '微信');
             withdrawPoint(params).then(res => {                       
-                 if (res.data.code == 0) {
-                    setTimeout(() => {
-                        console.log(this.userId)    
-                        this.$router.push({ 
-                            name: '提现明细', 
+                //  if (res.data.code == 0) {
+                    // setTimeout(() => {
+                        // console.log(this.userId)    
+                        this.$router.push({
+                            path: '/result',
+                            query: {
+                                title: '提现结果',
+                                success: res.data.code === 0 ? true : false
+                            }
                         });
-                    })
-                } else {
+                    // })
+                // } else {
                     // this.$vux.toast.text('hello')
-                }
+                // }
             })
         }
     }

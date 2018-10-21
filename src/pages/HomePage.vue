@@ -24,35 +24,23 @@
       </flexbox>
     </flexbox>
     <flexbox class="example-box" orient="vertical">
-      <flexbox :gutter="80">
-        <flexbox-item :span="6">
+      <flexbox class="header-column">
           <h2 class="colum-title">装修案例</h2>
-        </flexbox-item>
-        <flexbox-item :span="3">
-              <a class="title-more" @click="gotoExample">更多&gt;</a>
-        </flexbox-item>
+          <a class="title-more" @click="gotoExample">更多&gt;</a>
       </flexbox>
       <example-list :list="examples"></example-list>
     </flexbox>
     <flexbox class="news-box" orient="vertical">
-      <flexbox :gutter="80">
-        <flexbox-item :span="6">
+      <flexbox class="header-column">
           <h2 class="colum-title">新闻动态</h2>
-        </flexbox-item>
-        <flexbox-item :span="3">
-              <a class="title-more" @click="gotoNews">更多&gt;</a>
-        </flexbox-item>
+          <a class="title-more" @click="gotoNews">更多&gt;</a>
       </flexbox>
       <news-list :list="news"></news-list>
     </flexbox>
     <flexbox class="map-box" orient="vertical">
-      <flexbox :gutter="80">
-        <flexbox-item :span="6">
+      <flexbox class="header-column">
           <h2 class="colum-title">在线地图</h2>
-        </flexbox-item>
-        <flexbox-item :span="3">
           <a class="title-more">到那里去</a>
-        </flexbox-item>
       </flexbox>
       <flexbox>
         <flexbox-item>
@@ -188,14 +176,20 @@ export default {
     margin-bottom: 20px;
     box-sizing: content-box;
   }
+  .header-column {
+    position: relative;
+  }
   .colum-title {
     font-size: 30px;
     margin-left: 20px;
+    margin-top: 20px;
   }
   .title-more {
     font-size: 24px;
     color: #9A9A9A;
-    padding-left: 60px;
+    /* padding-left: 60px; */
+    position: absolute;
+    right: 20px;
   }
   .map-pic {
     width: 100%;

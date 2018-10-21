@@ -5,13 +5,13 @@
             <img src="../assets/msgPic.jpg">
         </div>
         <flexbox class="wrap">
-            <popup-picker :data="list1" :columns="3" v-model="address"></popup-picker>
+            <popup-picker :data="list1" :columns="3" v-model="address" value-text-align="left"></popup-picker>
         </flexbox>
         <flexbox class="wrap">
             <x-input placeholder="请输入您的房屋面积" v-model="area"></x-input>
         </flexbox>
         <flexbox class="wrap">
-            <popup-picker :data="list2" v-model="room"></popup-picker>
+            <popup-picker :data="list2" v-model="room" value-text-align="left"></popup-picker>
         </flexbox>
         <flexbox class="wrap">
             <x-input placeholder="输入号码，方便和您联系" v-model="phone"></x-input>
@@ -155,6 +155,7 @@ a {
     border: 1px solid #e0e0e0;
     border-radius: 20px;
     text-indent: 20px;
+    text-align: left !important;
 }
 .btn-wrap {
     margin-top: 57px;
@@ -165,5 +166,8 @@ a {
     padding: 25px 0;
     width: 100%;
     font-size: 30px;
+}
+.vux-cell-box {
+    width: 100%;
 }
 </style>
