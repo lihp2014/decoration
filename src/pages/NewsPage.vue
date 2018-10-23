@@ -1,6 +1,5 @@
 <template>
     <div>
-        <top-bar text='新闻动态' center='false'></top-bar>
         <div>
             <news-list :list="news"></news-list>
         </div>
@@ -24,6 +23,9 @@ export default {
         return {
             news: []
         }
+    },
+    created () {
+        document.title = '新闻动态'
     },
     methods: {
         async getNewsData () {

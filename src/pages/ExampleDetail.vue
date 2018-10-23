@@ -1,15 +1,14 @@
 <template>
     <div>
-        <top-bar text='田园风格设计' center='false'></top-bar>
         <div>
             <div class="img-wrap">
                 <img class="img" :src="data.backgroundImage"/>
                 <p class="info">
-                    <span>{{data.view}}浏览</span>
+                    <span class="view-text">{{data.view}}浏览</span>
                 </p>
             </div>
-            <div class="close-btn">
-                <p class="close">x</p>
+            <div class="close-btn" @click="goBack">
+                <p class="close"></p>
             </div>
             <div class="start-btn" @click="gotoMsg">
                 <p class="start">开启我的装修</p>
@@ -35,6 +34,9 @@ export default {
             data: {}
         }
     },
+    created() {
+        document.title = '田园风格设计'
+    },
     mounted () {
         let id = this.$route.params.id;
         getExampleDetail(id).then(res => {
@@ -44,6 +46,9 @@ export default {
         });
     },
     methods: {
+        goBack () {
+            window.history.go(-1);
+        },
         gotoMsg () {
             location.href="#/msg";
         }
@@ -66,23 +71,29 @@ export default {
       background: rgba(0,0,0,0.58);
       color: #fff;
       width: 100%;
+      height: 60px;
+      line-height: 60px;
       text-align: left;
-      padding-left: 20px;
+  }
+  .view-text {
+      margin-left: 20px;
   }
   .close-btn {
       background: #000;
       color: #fff;
       width: 100%;
-      height: 130px;
       padding-top: 30px;
+      padding-bottom: 30px;
+    //   height: 130px;
+    //   line-height: 130px;
+    //   padding-top: 30px;
   }
   .close {
       width: 65px;
       height: 65px;
-      line-height: 65px;
-      border: 1px solid #fff;
-      border-radius: 50%;
       margin: 0 auto;
+      background: url(../assets/close.png) center center no-repeat;
+      background-size: 65px 65px;
   }
   .start-btn {
       background: #26CC8C;

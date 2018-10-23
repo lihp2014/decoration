@@ -1,6 +1,5 @@
 <template>
     <div>
-        <top-bar text='合作案例' center='false'></top-bar>
         <div>
             <example-list :list="examples"></example-list>
         </div>
@@ -24,6 +23,9 @@ export default {
         return {
             examples: []
         }
+    },
+    created () {
+        document.title = '合作案例'
     },
     methods: {
         async getExampleData () {

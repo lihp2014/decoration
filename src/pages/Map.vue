@@ -1,6 +1,5 @@
 <template>
     <div>
-        <top-bar text='在线地图' left='false'></top-bar>
         <div id="container" style="width: 100%; height: 520px"></div>
     </div>
 </template>
@@ -20,6 +19,9 @@ export default {
             success: true
         }
     },
+    created() {
+        document.title = '在线地图';
+    },
     mounted () {
         TMap('RYEBZ-NH7LD-YQ64O-P7Q4F-6VRCQ-IIFTY').then(qq => {
         var map = new qq.maps.Map(document.getElementById("container"), {
@@ -28,6 +30,9 @@ export default {
             zoom: 10
         });
         });
+        let height = document.documentElement.offsetHeight;
+        let container = document.querySelector('#container');
+        container.style.height = height + 'px';
     }
 }
 </script>
