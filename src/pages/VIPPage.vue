@@ -8,7 +8,7 @@
             <tab-item selected @on-item-click="onItemClick(0)">第一市场</tab-item>
             <tab-item @on-item-click="onItemClick(1)">第二市场</tab-item>
         </tab>
-        <swiper v-model="index" :show-dots="false" height='900px'>
+        <swiper v-model="index" :show-dots="false" :aspect-ratio="800/800">
             <swiper-item>
                 <div>
                     <ul>
