@@ -2,13 +2,11 @@
     <div>
         <div>
             <div class="img-wrap">
-                <img class="img" :src="data.backgroundImage"/>
+                <swiper height="458px" loop :list="list" :show-dots="false" :show-desc-mask="false" v-model="swiperItemIndex"></swiper>
                 <p class="info">
                     <span class="view-text">{{data.view}}浏览</span>
+                    <span class="view-num">{{swiperItemIndex+1}}/{{list.length}}</span>
                 </p>
-            </div>
-            <div class="close-btn" @click="goBack">
-                <p class="close"></p>
             </div>
             <div class="start-btn" @click="gotoMsg">
                 <p class="start">开启我的装修</p>
@@ -20,18 +18,28 @@
 <script>
 
 import topBar from '../components/Topbar'
-import { Flexbox, FlexboxItem } from 'vux'
+import { Flexbox, FlexboxItem, Swiper } from 'vux'
 import { getExampleDetail } from '../service/home'
+const baseList = [{
+  img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vvsr72j20p00gogo2.jpg',
+}, {
+  img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg',
+}, {
+  img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg',
+}]
 
 export default {
     components: {
         topBar,
         Flexbox,
         FlexboxItem,
+        Swiper
     },
     data() {
         return {
-            data: {}
+            data: {},
+            list: baseList,
+            swiperItemIndex: 1
         }
     },
     created() {
@@ -78,30 +86,18 @@ export default {
   .view-text {
       margin-left: 20px;
   }
-  .close-btn {
-      background: #000;
-      color: #fff;
-      width: 100%;
-      padding-top: 30px;
-      padding-bottom: 30px;
-    //   height: 130px;
-    //   line-height: 130px;
-    //   padding-top: 30px;
-  }
-  .close {
-      width: 65px;
-      height: 65px;
-      margin: 0 auto;
-      background: url(../assets/close.png) center center no-repeat;
-      background-size: 65px 65px;
+  .view-num {
+      position: absolute;
+      right: 20px;
   }
   .start-btn {
       background: #26CC8C;
       width: 100%;
-      border-radius: 10px;
       height: 120px;
       line-height: 120px;
       color: #fff;
+      position: fixed;
+      bottom: 0;
   }
 </style>
 

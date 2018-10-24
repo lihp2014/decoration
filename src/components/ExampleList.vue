@@ -47,7 +47,7 @@ export default {
     font-size: 24px;
     margin: 0 auto;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
   }
   .inner-item img {
     width: 100%;

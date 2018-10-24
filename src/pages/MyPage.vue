@@ -14,11 +14,11 @@
       </flexbox>
     </div> 
     <flexbox class='jifen'>
-      <flexbox-item>
+      <flexbox-item @click.native="toDetail">
         <div class='number'>{{userinfo.totalPoints}}</div>
         <div class='grey'>总积分</div>
       </flexbox-item>
-      <flexbox-item>
+      <flexbox-item @click.native="toIntergral">
         <div class='number'>{{userinfo.presentPoints || 0 }}</div>
         <div class='grey'>现有积分</div>
       </flexbox-item>
@@ -35,15 +35,13 @@
       <cell-box class='last list' is-link link='vip'><img src="../assets/vipp.png" class='icon'/>vip推广</cell-box>
     </group>  
     <bottom-Bar v-bind={index}></bottom-Bar>
-    <x-dialog v-model="showcode"  hide-on-blur :dialog-style="{'max-width': '100%', width: '80%', height: '50%', 'background-color': 'transparent', margin: 'auto'}" >
+    <x-dialog v-model="showcode"  hide-on-blur :dialog-style="{'max-width': '100%', width: '80%', height: '50%', 'background-color': 'transparent', margin: 'auto', overflow: 'unset'}" >
       <div class="dialog">
-        <x-icon class="close" @click.native="spread" type="ios-close-outline" size="30"></x-icon>
+        <span class="cancel" @click="spread"></span>
         <p class='codetitle'>推广二维码</p>
-        <!-- <qrcode id='qrcode' value="http://fitment.guoxiaoge.cn/api/qrcode/"></qrcode> -->
         <img :src='qrcodeImg' />
       </div>
       <box gap="20px 50px">
-        <!-- <x-button class='btn' @click.native="spread('download')">下载二维码</x-button> -->
         <a :href='qrcodeImg' download="qrcode" class="dn-button">下载二维码</a>
       </box>
     </x-dialog>
@@ -101,21 +99,12 @@ export default {
   methods: {
     spread: function(type) {
       this.showcode = !this.showcode
-
-      // if (type == 'download') {
-
-      //   //找到canvas标签
-      //   let myCanvas = document.querySelector('#qrcode');
-      //   //创建一个a标签节点
-      //   let a = document.createElement("a")
-      //   // //设置a标签的href属性（将canvas变成png图片）
-      //   a.href = myCanvas.replace('image/png', 'image/octet-stream')
-      //   //设置下载文件的名字
-      //   a.download = "推广二维码"
-      //   //点击
-      //   a.click()
-      // }
-      let img = document.querySelector('qrcode');
+    },
+    toDetail() {
+      location.href='#/moneyDetail';
+    },
+    toIntergral() {
+      location.href="#/integral";
     }
   }
 }
@@ -142,11 +131,6 @@ export default {
   background: #fff;
   padding-bottom: 30px;
   position: relative;
-  .close {
-    background: #45CC84;
-    position: absolute;
-    right: 0;
-  }
   .codetitle {
     color: #464646;
     font-size: 36px;
@@ -159,6 +143,19 @@ export default {
   background: #fff;
   font-size: 40px;
 }
+
+  .cancel {
+    position: absolute;
+    right: -20px;
+    top: -20px;
+    z-index: 10000;
+    width: 45px;
+    height: 45px;
+    background: url(../assets/close.png) center center no-repeat;
+    background-color: #45CC84;
+    border-radius: 50%;
+    background-size: 45px 45px;
+  }
 .shadow {
   height: 370px;
   width: 100%;

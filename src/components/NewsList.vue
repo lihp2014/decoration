@@ -6,9 +6,9 @@
             </flexbox-item>
             <flexbox-item>
                 <div class="news-content">
-                <span>{{item.title}}</span>
-                <span class="news-sub-title">{{item.created_at}}</span>
-                <p class="news-article">{{item.article}}</p>
+                    <span class="news-title">{{item.title}}</span>
+                    <span class="news-sub-title">{{item.created_at.split(" ")[0]}}</span>
+                    <p class="news-article">{{item.article}}</p>
                 </div>
             </flexbox-item>
         </flexbox>
@@ -51,18 +51,18 @@ export default {
     height: 200px;
     border-radius: 10px;
   }
+  .news-title {
+    font-size: 30px;
+  }
   .news-sub-title {
-    font-size: 20px;
+    font-size: 22px;
     color: #ADADAD;
-    margin-left: 30px;
+    margin-left: 25px;
   }
   .news-article {
-    // font-size: 22px;
-    // color: #808080;
-    // overflow: hidden;
-    // display: -webkit-box;
-    // -webkit-line-clamp: 3;
-    // -webkit-box-orient: vertical;
+    font-size: 26px;
+    margin-top: 25px;
+    color: #808080;
     position: relative;
     line-height: 36px;
     height: 108px;

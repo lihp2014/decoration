@@ -174,6 +174,7 @@ export default {
     /* padding: 20px; */
     /* padding-left: 20px; */
     margin-bottom: 20px;
+    padding-bottom: 15px;
     box-sizing: content-box;
   }
   .header-column {
@@ -190,11 +191,13 @@ export default {
     /* padding-left: 60px; */
     position: absolute;
     right: 20px;
+    top: 20px;
   }
   .map-pic {
     width: 100%;
     height: 300px;
     background: url(../assets/map.png) no-repeat;
     background-size: cover;
+    margin-top: 20px;
   }
 </style>
