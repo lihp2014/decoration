@@ -7,7 +7,7 @@
             <flexbox-item>
                 <div class="news-content">
                     <span class="news-title">{{item.title}}</span>
-                    <span class="news-sub-title">{{item.created_at.split(" ")[0]}}</span>
+                    <span class="news-sub-title">{{item.created_at ? item.created_at.split(" ")[0] : ''}}</span>
                     <p class="news-article">{{item.article}}</p>
                 </div>
             </flexbox-item>
