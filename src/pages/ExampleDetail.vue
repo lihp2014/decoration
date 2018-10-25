@@ -4,7 +4,7 @@
             <div class="img-wrap">
                 <swiper height="458px" loop :list="list" :show-dots="false" :show-desc-mask="false" v-model="swiperItemIndex"></swiper>
                 <p class="info">
-                    <span class="view-text">{{data.view}}浏览</span>
+                    <span class="view-text">{{list[0].view}}浏览</span>
                     <span class="view-num">{{swiperItemIndex+1}}/{{list.length}}</span>
                 </p>
             </div>
@@ -38,7 +38,7 @@ export default {
     data() {
         return {
             data: {},
-            list: baseList,
+            list: [],
             swiperItemIndex: 1
         }
     },
@@ -49,7 +49,8 @@ export default {
         let id = this.$route.params.id;
         getExampleDetail(id).then(res => {
             if (res.data.code === 0) {
-                this.data = res.data.data.list[0];
+                // this.data = res.data.data.list[0];
+                this.list = res.data.data.list;
             }
         });
     },
