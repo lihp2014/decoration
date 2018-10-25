@@ -1,8 +1,8 @@
 <template>
     <div>
         <top-bar text='新闻动态' center='false'></top-bar>
-        <div>
-            <h3>{{data.title}}</h3>
+        <div class="content">
+            <h3 class="mb">{{data.title}}</h3>
             <p>{{data.article}}</p>
         </div>
     </div>
@@ -36,5 +36,12 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+.content {
+    padding-left: 26px;
+    padding-right: 26px;
+}
+.mb {
+    margin-bottom: 20px;
+}
 </style>
 

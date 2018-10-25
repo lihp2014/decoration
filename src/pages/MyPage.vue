@@ -39,7 +39,7 @@
       <div class="dialog">
         <span class="cancel" @click="spread"></span>
         <p class='codetitle'>推广二维码</p>
-        <img :src='qrcodeImg' />
+        <img :src='qrcodeImg' class="qrcode"/>
       </div>
       <box gap="20px 50px">
         <a :href='qrcodeImg' download="qrcode" class="dn-button">下载二维码</a>
@@ -134,7 +134,11 @@ export default {
   .codetitle {
     color: #464646;
     font-size: 36px;
-    padding: 15px 0;
+    padding: 60px 0 30px 0;
+  }
+  .qrcode {
+    width: 528px;
+    height: 528px;
   }
 }
 .btn {
@@ -230,5 +234,6 @@ export default {
   line-height: 90px;
   color: #464646;
   font-size: 36px;
+  margin-top: 90px;
 }
 </style>

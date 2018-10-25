@@ -4,7 +4,7 @@
       <tabbar-item link="/home" icon-class="small">
         <img slot="icon" src="../assets/icon/home.png" style="width: 20px;height: 20px;">
         <img slot="icon-active" src="../assets/icon/home-a.png" style="width: 20px;height: 20px;">
-        <span slot="label" style="text-decoration: none">首页</span>
+        <span slot="label" style="text-decoration: none;">首页</span>
       </tabbar-item>
       <tabbar-item link="msg">
         <img slot="icon" src="../assets/icon/msg.png" style="width: 20px;height: 20px;"> 

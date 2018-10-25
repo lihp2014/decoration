@@ -151,7 +151,7 @@ a {
 .wrap {
     margin-top: 30px;
     background-color: #e0e0e0;
-    height: 100px;
+    height: 98px;
     border: 1px solid #e0e0e0;
     border-radius: 20px;
     text-indent: 20px;

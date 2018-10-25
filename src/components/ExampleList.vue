@@ -54,6 +54,12 @@ export default {
     height: 223px;
     border-radius: 10px 10px 0 0;
   }
+  .intro {
+    position: relative;
+    line-height: 36px;
+    height: 36px;
+    overflow: hidden;
+  }
   .area {
     position: absolute;
     right: 0;

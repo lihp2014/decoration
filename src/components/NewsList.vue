@@ -51,13 +51,16 @@ export default {
     height: 200px;
     border-radius: 10px;
   }
+  .news-content {
+      margin-left: 15px;
+  }
   .news-title {
     font-size: 30px;
   }
   .news-sub-title {
     font-size: 22px;
     color: #ADADAD;
-    margin-left: 25px;
+    margin-left: 20px;
   }
   .news-article {
     font-size: 26px;

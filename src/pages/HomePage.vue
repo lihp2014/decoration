@@ -4,21 +4,21 @@
     <flexbox class="top-box">
       <flexbox>
         <flexbox-item>
-          <div class="info-left" @click="gotoExample">
-              <h3 class="title">合作案例</h3>
+          <div class="info-left top-example" @click="gotoExample">
+              <h3 class="title top-example-title">合作案例</h3>
             <h4 class="sub-title">已有24562位商家选择我们</h4>
           </div>
         </flexbox-item>
       </flexbox>
       <flexbox orient="vertical">
         <flexbox-item>
-          <div class="info-right" @click="gotoNews">
-              <h3 class="title">新闻动态</h3>
+          <div class="info-right top-news" @click="gotoNews">
+              <h3 class="title top-news-title">新闻动态</h3>
           </div>
         </flexbox-item>
         <flexbox-item>
-          <div class="info-right" @click="gotoAbout">
-              <h3 class="title">关于我们</h3>
+          <div class="info-right top-us" @click="gotoAbout">
+              <h3 class="title top-us-title">关于我们</h3>
           </div>
         </flexbox-item>
       </flexbox>
@@ -146,33 +146,57 @@ export default {
   }
   .title {
     padding-left: 20px;
+    padding-top: 10px;
     font-size: 30px;
   }
   .sub-title {
     font-size: 20px;
     padding-left: 20px;
   }
+  .top-news-title {
+    background: url(../assets/icon/t-fade.png) 15px 15px no-repeat;
+    background-size: 32px 32px;
+    padding-left: 55px;
+  }
+  .top-us-title {
+    background: url(../assets/icon/t-c.png) 15px 15px no-repeat;
+    background-size: 32px 32px;
+    padding-left: 55px;
+  }
+  .top-example-title{
+    background: url(../assets/icon/t-exam.png) 15px 15px no-repeat;
+    background-size: 32px 32px;
+    padding-left: 55px;
+  }
   .info, .info-left, .info-right {
     color: #fff;
-    background-color: #20b907;
+    /* background-color: #20b907; */
     border-radius: 16px;
     width: 330px;
   }
   .info-left {
-    /* margin-right: 20px; */
     height: 240px;
     margin: 0 auto;
   }
   .info-right {
     height: 110px;
-    /* margin-right: 0; */
     margin: 0 auto;
   }
+  .top-example {
+    background: url(../assets/example-bg.png) center center no-repeat;
+    background-size: 340px 240px;
+  }
+  .top-news {
+    background: url(../assets/news-bg.png) center center no-repeat;
+    background-size: 340px 110px;
+  }
+  .top-us {
+    background: url(../assets/about-bg.png) center center no-repeat;
+    background-size: 340px 110px;
+    margin-top: 10px;
+  }
   .example-box, .news-box, .map-box {
-    /* width: 100%; */
     background-color: #fff;
-    /* padding: 20px; */
-    /* padding-left: 20px; */
     margin-bottom: 20px;
     padding-bottom: 15px;
     box-sizing: content-box;

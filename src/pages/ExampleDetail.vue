@@ -2,7 +2,7 @@
     <div>
         <div>
             <div class="img-wrap">
-                <swiper height="458px" loop :list="list" :show-dots="false" :show-desc-mask="false" v-model="swiperItemIndex"></swiper>
+                <swiper height="480px" loop :list="list" :show-dots="false" :show-desc-mask="false" v-model="swiperItemIndex"></swiper>
                 <p class="info">
                     <span class="view-text">{{list[0].view}}浏览</span>
                     <span class="view-num">{{swiperItemIndex+1}}/{{list.length}}</span>
@@ -67,12 +67,7 @@ export default {
 <style lang="less" scoped>
   .img-wrap {
       position: relative;
-      width: 750px;
-      height: 914px;
-  }
-  .img {
       width: 100%;
-      height: 914px;
   }
   .info {
       position: absolute;
