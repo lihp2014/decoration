@@ -60,9 +60,13 @@ export default {
     height: 36px;
     overflow: hidden;
   }
+  .view {
+    color: #808080;
+  }
   .area {
     position: absolute;
     right: 0;
+    color: #808080;
   }
 </style>
 

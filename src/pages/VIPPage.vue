@@ -8,7 +8,7 @@
             <tab-item selected @on-item-click="onItemClick(0)">第一市场</tab-item>
             <tab-item @on-item-click="onItemClick(1)">第二市场</tab-item>
         </tab>
-        <swiper v-model="index" :show-dots="false" :aspect-ratio="800/800">
+        <swiper v-model="index" :show-dots="false" :aspect-ratio="900/720">
             <swiper-item>
                 <div>
                     <ul>
@@ -31,6 +31,7 @@
                         </li>
                     </ul>
                 </div>
+                <x-button type='primary' class="btnPartner">第一市场: 9421人</x-button>
             </swiper-item>
             <swiper-item>
                 <div>
@@ -40,7 +41,7 @@
                                 <img :src="$url + item.avatar" class='pic'/>
                                 <flexbox-item>
                                     <div>
-                                        <div class='nickname'>{{item.name}}</div>
+                                        <div class='nickname'>{{item.user_name}}</div>
                                         <div class='level'>{{item.user_level}}</div>
                                     </div>      
                                 </flexbox-item>
@@ -54,13 +55,14 @@
                         </li>
                     </ul>
                 </div>
+                <x-button type='primary' class="btnPartner">第二市场: 9421人</x-button>
             </swiper-item>
         </swiper>       
     </div>
 </template>
 <script>
 import topBar from '../components/Topbar'
-import { Flexbox, FlexboxItem, Tab, TabItem, Swiper, SwiperItem } from 'vux'
+import { Flexbox, FlexboxItem, Tab, TabItem, Swiper, SwiperItem, XButton } from 'vux'
 import { vipSpread, vipSecond } from '../service/home'
 
 export default {
@@ -72,6 +74,7 @@ export default {
         TabItem,
         Swiper,
         SwiperItem,
+        XButton,
     },
     data() {
         return {
@@ -135,6 +138,18 @@ export default {
 }
 .vux-slider > .vux-swiper {
     overflow: unset !important;
+}
+
+.btnPartner {
+    border-radius:99px;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    /* left: 20px; */
+    left: 10%;
+    border-radius:99px;
+    font-size: 40px;
+    width: 80%;
 }
 </style>
 

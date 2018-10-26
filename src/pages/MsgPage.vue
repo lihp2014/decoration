@@ -2,13 +2,13 @@
   <div>
     <div class="content">
         <div class="image-box">
-            <img src="../assets/msgPic.jpg">
+            <img src="../assets/msgPic.png">
         </div>
         <flexbox class="wrap">
             <popup-picker :data="list1" :columns="3" v-model="address" value-text-align="left"></popup-picker>
         </flexbox>
         <flexbox class="wrap">
-            <x-input placeholder="请输入您的房屋面积" v-model="area"></x-input>
+            <x-input placeholder="请输入您的房屋面积" v-model="area"></x-input><span class="area">㎡</span>
         </flexbox>
         <flexbox class="wrap">
             <popup-picker :data="list2" v-model="room" value-text-align="left"></popup-picker>
@@ -156,6 +156,12 @@ a {
     border-radius: 20px;
     text-indent: 20px;
     text-align: left !important;
+    position: relative;
+}
+.area {
+    position: absolute;
+    right: 25px;
+    color: #363636;
 }
 .btn-wrap {
     margin-top: 57px;

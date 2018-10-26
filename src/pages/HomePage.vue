@@ -177,10 +177,12 @@ export default {
   .info-left {
     height: 240px;
     margin: 0 auto;
+    margin-left: 30px;
   }
   .info-right {
     height: 110px;
     margin: 0 auto;
+    margin-right: 30px;
   }
   .top-example {
     background: url(../assets/example-bg.png) center center no-repeat;

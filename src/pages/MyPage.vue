@@ -42,7 +42,7 @@
         <img :src='qrcodeImg' class="qrcode"/>
       </div>
       <box gap="20px 50px">
-        <a :href='qrcodeImg' download="qrcode" class="dn-button">下载二维码</a>
+        <a :href='qrcodeImg' download="qrcode" class="dn-button">长按识别保存</a>
       </box>
     </x-dialog>
   </div>

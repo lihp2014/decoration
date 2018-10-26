@@ -121,8 +121,11 @@ export default {
     padding: 20px 0;
     position: absolute;
     bottom: 20px;
+    /* left: 20px; */
+    left: 10%;
     border-radius:99px;
     font-size: 40px;
+    width: 80%;
 }
 </style>
 
