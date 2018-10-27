@@ -8,7 +8,7 @@
             <tab-item selected @on-item-click="onItemClick(0)">第一市场</tab-item>
             <tab-item @on-item-click="onItemClick(1)">第二市场</tab-item>
         </tab>
-        <swiper v-model="index" :show-dots="false" :aspect-ratio="900/720">
+        <swiper v-model="index" :show-dots="false" :aspect-ratio="800/800">
             <swiper-item>
                 <div>
                     <ul>
@@ -31,7 +31,7 @@
                         </li>
                     </ul>
                 </div>
-                <x-button type='primary' class="btnPartner">第一市场: 9421人</x-button>
+                <!-- <x-button type='primary' class="btnPartner">第一市场: 9421人</x-button> -->
             </swiper-item>
             <swiper-item>
                 <div>
@@ -55,9 +55,9 @@
                         </li>
                     </ul>
                 </div>
-                <x-button type='primary' class="btnPartner">第二市场: 9421人</x-button>
             </swiper-item>
-        </swiper>       
+            <x-button type='primary' class="btnPartner">第{{index === 0 ? '一' : '二'}}市场: {{index === 0 ? one.length : two.length}}人</x-button>   
+        </swiper>    
     </div>
 </template>
 <script>

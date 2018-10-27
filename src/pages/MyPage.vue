@@ -164,16 +164,16 @@ export default {
   height: 370px;
   width: 100%;
   // border: 1px solid #ccc;
-  background: url('https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg') center center;
+  background: url(../assets/bg.png) center center no-repeat;
+  background-size: 750px 242px;
   position: absolute;
-  -webkit-filter:blur(3px);
-  filter:blur(3px);
-  top: 0;
+  top: -62px;
   left: 0;
   z-index: -1;
 }
 .information {
-  height: 330px;
+  height: 240px;
+  margin-top: -15px;
   .topbar{
     color: #fff;
   }

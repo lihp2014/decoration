@@ -24,7 +24,7 @@
                 </flexbox>
             </li>
         </ul>
-        <x-button type='primary' class="btnPartner">第一市场: 9421人</x-button>
+        <x-button type='primary' class="btnPartner">第一市场: {{list.length}}人</x-button>
     </div>   
 </template>
 <script>
