@@ -3,7 +3,7 @@
         <top-bar text='新闻动态' center='false'></top-bar>
         <div class="content">
             <h3 class="mb">{{data.title}}</h3>
-            <p>{{data.article}}</p>
+            <p v-html="data.article"></p>
         </div>
     </div>
 </template>
