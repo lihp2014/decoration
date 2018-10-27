@@ -44,7 +44,7 @@ export default {
                 size = new qq.maps.Size(42, 68),
                 origin = new qq.maps.Point(0, 0),
                 icon = new qq.maps.MarkerImage(
-                    "https://timgsa.baidu.com/timg?image&quality=80&size=2&sec=1540644087573&di=c6b128d397127004c1525bb13cc3870c&imgtype=0&src=http%3A%2F%2Fimgsrc.baidu.com%2Fimgad%2Fpic%2Fitem%2Ff636afc379310a553f6188cfbc4543a982261047.jpg",
+                    "https://blog.lijulun.com/uploads/images/20180928/location.png",
                     size,
                     origin,
                     anchor

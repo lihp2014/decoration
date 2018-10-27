@@ -124,7 +124,7 @@ export default {
     /* left: 20px; */
     left: 10%;
     border-radius:99px;
-    font-size: 40px;
+    font-size: 30px;
     width: 80%;
 }
 </style>
