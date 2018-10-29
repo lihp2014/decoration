@@ -141,15 +141,13 @@ export default {
 }
 
 .btnPartner {
-    border-radius:99px;
-    padding: 20px 0;
     position: fixed;
     bottom: 0;
-    /* left: 20px; */
-    left: 10%;
-    border-radius:99px;
-    font-size: 30px;
-    width: 80%;
+    margin-top: 60px;
+    padding: 20px 0; 
+    border-radius: 10px;
+    width: 100%;
+    font-size: 34px;
 }
 </style>
 

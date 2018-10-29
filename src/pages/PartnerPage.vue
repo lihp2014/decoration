@@ -117,15 +117,13 @@ export default {
     border-bottom: 1px solid #DFDFDF;
 }
 .btnPartner {
-    border-radius:99px;
-    padding: 20px 0;
     position: absolute;
-    bottom: 20px;
-    /* left: 20px; */
-    left: 10%;
-    border-radius:99px;
-    font-size: 30px;
-    width: 80%;
+    bottom: 0;
+    margin-top: 60px;
+    padding: 20px 0; 
+    border-radius: 10px;
+    width: 100%;
+    font-size: 34px;
 }
 </style>
 

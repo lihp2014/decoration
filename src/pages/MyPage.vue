@@ -7,18 +7,18 @@
         <flexbox-item :span="6" id='picbox'>
           <img id="pic" :src="userinfo.avatar" />
         </flexbox-item>
-        <flexbox-item :span="5">
+        <flexbox-item :span="5" class="info">
           <div class='nickname'>{{userinfo.nickname}}</div>
-          <div class='nickname'>ID: {{userinfo.user_id}}</div>
+          <div class='id-num'>ID: {{userinfo.user_id}}</div>
         </flexbox-item>
       </flexbox>
     </div> 
     <flexbox class='jifen'>
-      <flexbox-item @click.native="toDetail">
+      <flexbox-item @click.native="toDetail" class="jifen-item">
         <div class='number'>{{userinfo.totalPoints}}</div>
         <div class='grey'>总积分</div>
       </flexbox-item>
-      <flexbox-item @click.native="toIntergral">
+      <flexbox-item @click.native="toIntergral" class="jifen-item">
         <div class='number'>{{userinfo.presentPoints || 0 }}</div>
         <div class='grey'>现有积分</div>
       </flexbox-item>
@@ -112,7 +112,8 @@ export default {
 
 <style lang="less">
 .jifen {
-  padding-bottom: 15px;
+  margin-top: -15px;
+  padding-bottom: 30px;
   .grey {
   color: #787878;
   font-size: 22px;
@@ -125,6 +126,9 @@ export default {
     text-align: center;
     font-size: 30px;
     color: #363636;
+  }
+  .jifen-item {
+    border-right: 1px solid #ccc;
   }
 }
 .dialog {
@@ -192,11 +196,18 @@ export default {
         border: 1px solid #B78D8F;
         // margin-left: 120px;
       }
-    }   
+    }
+    .info {
+      margin-left: -15px !important;
+    }
     .nickname {
       color: #fff;
       // font-size: 34px;
-      font-weight: 500;
+      font-weight: 700;
+    }
+    .id-num {
+      font-size: 30px;
+      color: #fff;
     }
   }
 }
