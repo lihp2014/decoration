@@ -1,4 +1,8 @@
 import req from '../utils/request'
+import { getToken, getUrlParam } from '../utils/getToken'
+
+let url = getToken();
+console.log(getUrlParam('token', 111));
 
 export const getBanner = param => {
   return req.get('/banner', param)
