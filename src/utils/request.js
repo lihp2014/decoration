@@ -79,6 +79,7 @@ axios.defaults.timeout = 10000
 export default {
   // get请求
   get (url, param) {
+    console.log(1111, param)
     return new Promise((resolve, reject) => {
       axios({
         method: 'get',
