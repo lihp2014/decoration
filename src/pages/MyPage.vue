@@ -5,17 +5,17 @@
     <div class="information">
       <flexbox class='userbox'>
         <flexbox-item :span="6" id='picbox'>
-          <img id="pic" :src="userinfo.avatar" />
+          <img id="pic" :src="userinfo.headimgurl" />
         </flexbox-item>
         <flexbox-item :span="5" class="info">
-          <div class='nickname'>{{userinfo.nickname}}</div>
-          <div class='id-num'>ID: {{userinfo.user_id}}</div>
+          <div class='nickname'>{{userinfo.nick_name}}</div>
+          <div class='id-num'>ID: {{userinfo.id}}</div>
         </flexbox-item>
       </flexbox>
     </div> 
     <flexbox class='jifen'>
       <flexbox-item @click.native="toDetail" class="jifen-item">
-        <div class='number'>{{userinfo.totalPoints}}</div>
+        <div class='number'>{{userinfo.totalPoints || 0 }}</div>
         <div class='grey'>总积分</div>
       </flexbox-item>
       <flexbox-item @click.native="toIntergral" class="jifen-item">
@@ -29,10 +29,10 @@
     </flexbox>
     <div class='line'></div>
     <group>
-      <cell-box class='list' is-link link='partner'><img src="../assets/part.png" class='icon'/>合伙人绑定</cell-box>
+      <cell-box v-if="userinfo.user_level === 1" class='list' is-link link='partner'><img src="../assets/part.png" class='icon'/>合伙人绑定</cell-box>
       <cell-box class='list' is-link link='integral'><img src="../assets/jifen.png" class='icon'/>积分兑换</cell-box>
       <cell-box class='list' is-link @click.native="spread"><img src="../assets/tuiguang.png" class='icon'/>推广码</cell-box>
-      <cell-box class='last list' is-link link='vip'><img src="../assets/vipp.png" class='icon'/>vip推广</cell-box>
+      <cell-box v-if="userinfo.user_level === 0" class='last list' is-link link='vip'><img src="../assets/vipp.png" class='icon'/>vip推广</cell-box>
     </group>  
     <bottom-Bar v-bind={index}></bottom-Bar>
     <x-dialog v-model="showcode"  hide-on-blur :dialog-style="{'max-width': '100%', width: '80%', height: '50%', 'background-color': 'transparent', margin: 'auto', overflow: 'unset'}" >
@@ -80,7 +80,7 @@ export default {
         user_id: 1,
         user_level: "普通會員",
       },
-      qrcodeImg: ''
+      qrcodeImg: '',
     }
   },
   created: function() {
@@ -88,6 +88,7 @@ export default {
       console.log(res)
         if (res.data.code == 0) {
           this.userinfo = res.data.data.personinfo.list[0]
+          this.userid = res.data.data.personinfo.id
         }
     })
     qrcode().then(res => {
