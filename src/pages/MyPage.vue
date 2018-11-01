@@ -23,7 +23,7 @@
         <div class='grey'>现有积分</div>
       </flexbox-item>
       <flexbox-item>
-        <div class='number'>{{userinfo.user_level}}</div>
+        <div class='number'>{{userinfo.user_level === 1 ? '合伙人' : '普通会员'}}</div>
         <div class='grey'>等级</div>
       </flexbox-item>
     </flexbox>
